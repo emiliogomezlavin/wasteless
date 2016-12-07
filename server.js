@@ -1,11 +1,15 @@
 const express = require('express'),
+      path = require('path'),
       server = express(),
       bodyParser = require('body-parser'),
+      pg = require('knex')({
+        client: 'pg',
+        connection: process.env.PG_CONNECTION_STRING,
+        searchPath: 'knex,public'
+      }),
       passport = require('passport'),
       _ = require('underscore');
 
-// Connect DB and load models
-// require('./models').connect('mongodb:localhost/wastless_app');
 
 server.use(express.static('./app/public'));
 server.use(bodyParser.urlencoded({ extended: false }));
@@ -21,8 +25,13 @@ const authCheck = require('./helpers/auth-check');
 server.use('/api', authCheck);
 
 // Routes
-const apiRoutes = require('./routes/api')
-server.use('/api', apiRoutes)
+const apiRoutes = require('./routes/api');
+server.use('/api', apiRoutes);
+
+// const  authRoutes = require('./routes/auth');
+// server.use('auth', authRoutes);
+
+
 
 const allowCrossDomain = function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*')
