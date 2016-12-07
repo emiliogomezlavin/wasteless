@@ -17,8 +17,8 @@ server.use(passport.initialize());
 
 
 // Helpers for passport this will check for ifLoggedin
-// const authCheckMiddleware = require('./server/middleware/auth-check');
-// app.use('/api', authCheckMiddleware);
+const authCheck = require('./helpers/auth-check');
+server.use('/api', authCheck);
 
 // Routes
 const apiRoutes = require('./routes/api')
