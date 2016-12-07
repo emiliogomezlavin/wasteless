@@ -4,9 +4,11 @@ const express = require('express'),
       bodyParser = require('body-parser'),
       pg = require('knex')({
         client: 'pg',
-        connection: process.env.PG_CONNECTION_STRING,
+        connection: 'postgres://localhost:5432/wasteless_app',
         searchPath: 'knex,public'
       }),
+      db = require('./models/database'),
+      config = require('./knexfile.js'),
       passport = require('passport'),
       _ = require('underscore');
 

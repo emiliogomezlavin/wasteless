@@ -2,7 +2,10 @@ const databaseName = 'wasteless_app';
 
 module.exports = {
   development: {
-    connection: `postgres://localhost:5432/${databaseName}`,
+    client: 'postgresql',
+    connection: {
+      database: 'wasteless_app'
+    },
     migrations: {
        directory: __dirname + '/db/migrations'
     },
@@ -10,16 +13,4 @@ module.exports = {
        directory: __dirname + '/db/seeds'
     }
   }
- // test: {
- //   client: 'postgresql',
- //   connection: `postgres://localhost:5432/${databaseName}_test`,
- //   migrations: {
- //     directory: __dirname + '/src/server/db/migrations'
- //   },
- //   seeds: {
- //     directory: __dirname + '/src/server/db/seeds'
- //   }
- // }
 };
-
-
