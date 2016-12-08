@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="landing-page-assets/main.css" media="screen" title="no title">
+    <!-- Scripts -->
+    <script src="landing-page-assets/scripts/jquery-1.11.1.min.js"></script>
+
+    <script src="landing-page-assets/scripts/jquery.backstretch.min.js"></script>
+    <script src="landing-page-assets/scripts/jquery.countdown.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="landing-page-assets/scripts/landing-page.js"></script>
+
+  </head>
+  <body>
+
+    <!-- Header -->
+    <div class="container">
+        <div class="row header">
+            <div class="col-sm-4 logo">
+
+            </div>
+            <div class="col-sm-8 call-us">
+                <p>Email: <span>wastelessapp@gmail.com</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Coming Soon -->
+    <div class="coming-soon">
+        <div class="inner-bg">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h2>We're Coming Soon</h2>
+                        <p>We are working very hard on the alpha of our site. It will bring a lot of features. Stay tuned!</p>
+                        <div class="timer">
+                            <div class="days-wrapper">
+                                <span class="days"></span> <br>days
+                            </div>
+                            <div class="hours-wrapper">
+                                <span class="hours"></span> <br>hours
+                            </div>
+                            <div class="minutes-wrapper">
+                                <span class="minutes"></span> <br>minutes
+                            </div>
+                            <div class="seconds-wrapper">
+                                <span class="seconds"></span> <br>seconds
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 subscribe">
+                <h3>Subscribe to our newsletter</h3>
+                <p>Sign up now to our newsletter and you'll be one of the first to know when the site is ready:</p>
+                <form class="form-inline" role="form" action="assets/subscribe.php" method="post">
+                	<div class="form-group">
+                		<label class="sr-only" for="subscribe-email">Email address</label>
+                    	<input type="text" name="email" placeholder="Enter your email..." class="subscribe-email form-control" id="subscribe-email">
+                    </div>
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+                <div class="success-message"></div>
+                <div class="error-message"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 social">
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
+                <a href="#" data-toggle="tooltip" data-placement="top" title="Google Plus"><i class="fa fa-google-plus"></i></a>
+            </div>
+        </div>
+    </div>
+
+
+  </body>
+</html>

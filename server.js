@@ -2,13 +2,7 @@ const express = require('express'),
       path = require('path'),
       server = express(),
       bodyParser = require('body-parser'),
-      pg = require('knex')({
-        client: 'pg',
-        connection: 'postgres://localhost:5432/wasteless_app',
-        searchPath: 'knex,public'
-      }),
       db = require('./models/database'),
-      config = require('./knexfile.js'),
       passport = require('passport'),
       _ = require('underscore');
 
@@ -41,6 +35,11 @@ const allowCrossDomain = function(req, res, next) {
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With')
     res.setHeader('Access-Control-Allow-Credentials', true)
 }
+
+// Landing page route for now
+server.get('/home', function(req, res) {
+  res.sendFile(path.join(__dirname + '/app/public/landing-page.html'))
+})
 
 server.use(allowCrossDomain);
 
