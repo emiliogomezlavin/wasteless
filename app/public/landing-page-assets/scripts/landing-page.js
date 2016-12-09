@@ -1,12 +1,12 @@
 console.log("Connected")
 
-
 jQuery(document).ready(function() {
 
   // Countdown initializer
 
-	var now = new Date();
-	var countTo = 25 * 24 * 60 * 60 * 1000 + now.valueOf();
+	var now = new Date('12/25/16 00:00 AM');
+	var countTo = now.valueOf();
+
 	$('.timer').countdown(countTo, function(event) {
 		$(this).find('.days').text(event.offset.totalDays);
 		$(this).find('.hours').text(event.offset.hours);
@@ -34,8 +34,6 @@ jQuery(document).ready(function() {
 				}
 			}
 		})
-	}
-
-	)
+	})
 
 });
