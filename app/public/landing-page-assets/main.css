@@ -205,11 +205,7 @@ a, a:hover, a:focus {
 
 .social a {
     display: inline-block;
-    width: 48px;
-    height: 48px;
     margin: 3px;
-    padding-top: 9px;
-    background: #555;
     -moz-border-radius: 50%; -webkit-border-radius: 50%; border-radius: 50%;
     font-size: 28px;
     color: #fff;

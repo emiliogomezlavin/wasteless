@@ -3,18 +3,8 @@ console.log("Connected")
 
 jQuery(document).ready(function() {
 
-    /*
-        Background slideshow
-    */
-    $('.coming-soon').backstretch([
-      "assets/img/backgrounds/1.jpg"
-    , "assets/img/backgrounds/2.jpg"
-    , "assets/img/backgrounds/3.jpg"
-    ], {duration: 3000, fade: 750});
+  // Countdown initializer
 
-    /*
-	    Countdown initializer
-	*/
 	var now = new Date();
 	var countTo = 25 * 24 * 60 * 60 * 1000 + now.valueOf();
 	$('.timer').countdown(countTo, function(event) {
