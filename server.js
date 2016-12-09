@@ -3,15 +3,26 @@ const express = require('express'),
       server = express(),
       bodyParser = require('body-parser'),
       db = require('./models/database'),
+      session = require('express-session'),
       passport = require('passport'),
       _ = require('underscore');
 
 
 server.use(express.static('./app/public'));
 server.use(bodyParser.urlencoded({ extended: false }));
+require('dotenv').config();
 
 // Passport Middleware
+
 server.use(passport.initialize());
+
+server.use(session({
+  secret: process.env.SECRET_KEY,
+  resave: false,
+  saveUninitialized: true
+}));
+
+server.use(passport.session());
 
 // Load passport strategies
 
@@ -24,8 +35,8 @@ server.use('/api', authCheck);
 const apiRoutes = require('./routes/api');
 server.use('/api', apiRoutes);
 
-// const  authRoutes = require('./routes/auth');
-// server.use('auth', authRoutes);
+const  authRoutes = require('./routes/auth');
+server.use('auth', authRoutes);
 
 
 
