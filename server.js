@@ -24,12 +24,13 @@ server.use(session({
 
 server.use(passport.session());
 
+
 // Load passport strategies
 
 
 // Helpers for passport this will check for ifLoggedin
-const authCheck = require('./helpers/auth-check');
-server.use('/api', authCheck);
+// const authCheck = require('./helpers/auth-check');
+// server.use('/api', authCheck);
 
 // Routes
 const apiRoutes = require('./routes/api');
@@ -37,6 +38,7 @@ server.use('/api', apiRoutes);
 
 const  authRoutes = require('./routes/auth');
 server.use('auth', authRoutes);
+
 
 
 

@@ -22,6 +22,7 @@ function createUser (req){
 
 
 function loginRedirect (req, res, next){
+  console.log(req.user);
   if(req.user){
     return res.status(401).json(
       {status: "You are already logged in!"});
@@ -29,9 +30,18 @@ function loginRedirect (req, res, next){
   return next();
 }
 
+function loginRequired (req, res, next){
+  if(!req.user){
+    return res.status(401).json(
+      {status: "Please log in"});
+  }
+  next();
+}
+
 
 module.exports = {
   comparePass,
   createUser,
-  loginRedirect
+  loginRedirect,
+  loginRequired
 };
