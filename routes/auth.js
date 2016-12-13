@@ -1,5 +1,5 @@
 const express = require('express'),
-      router = express.Router(),
+      router = new express.Router(),
       passport = require('../auth/local'),
       authHelpers = require('../auth/_helper');
 
@@ -22,11 +22,11 @@ function handleResponse (res, code, statusMsg){
 
 
 // Post -- Sign in route
-router.post('/sign_in', handleLogin, function(req,res,next){
+router.post('/sign_in', function(req,res,next){
   
-  console.log(req.body);
+  console.log("body");
+  return;
   passport.authenticate('local', function(err, user, info){
-    console.log(user);
     if(user) {
       handleResponse(res, 200, 'success');
       res.redirect('/dashboard');
