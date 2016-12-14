@@ -25,11 +25,10 @@ function handleResponse (res, code, statusMsg){
 router.post('/sign_in', function(req,res,next){
 
   console.log("body");
-  return;
   passport.authenticate('local', function(err, user, info){
     if(user) {
       handleResponse(res, 200, 'success');
-      res.redirect('/dashboard');
+      res.redirect('/api/dashboard');
     }
     if (!user) {
       handleResponse(res, 404, 'user not found');
@@ -57,8 +56,5 @@ function handleLogin(req, user) {
     });
   });
 }
-
-
-
 
 module.exports = router;

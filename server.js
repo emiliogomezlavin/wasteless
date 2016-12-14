@@ -31,9 +31,9 @@ server.use(passport.session());
 passport.serializeUser( function (user, done){
     done(null, user.id);
   });
-passport.deserializeUser( function (id, done){  
+passport.deserializeUser( function (id, done){
   knex('users').where({id}).first()
-  .then(function (user) { 
+  .then(function (user) {
     done(null, user);
   })
   .catch(function (err) {
@@ -49,15 +49,22 @@ passport.deserializeUser( function (id, done){
 
 // Routes
 const apiRoutes = require('./routes/api');
-server.use('/api', apiRoutes);
+server.use('/api', restrict, apiRoutes);
 
 // const  authRoutes = require('./routes/auth');
-// server.use('auth', authRoutes);
-
+// server.use('/auth', authRoutes);
+function restrict(req, res, next) {
+  if (req.session.user) {
+    next();
+  } else {
+    req.session.error = 'Access denied!';
+    res.redirect('/');
+  }
+}
 
 
 // Landing page route for now
-server.get('/home', function(req, res) {
+server.get('/home', restrict, function(req, res) {
   res.sendFile(path.join(__dirname + '/app/public/landing-page.html'))
 })
 
@@ -65,7 +72,7 @@ server.get('/home', function(req, res) {
 // AUTH Post -- Sign in route
 server.post('/sign_in', function(req,res,next){
   passport.authenticate('local', function(err, user, info){
-    if(!req.isAuthenticated()) {    
+    if(!req.isAuthenticated()) {
       req.login(user, function(err){
         if(err){
           return res.status(500).json({
@@ -75,7 +82,7 @@ server.post('/sign_in', function(req,res,next){
         res.redirect('/api/dashboard');
       })
     }
-    else{  
+    else{
       // response when user is already logged in
       res.redirect('/home');
     }
