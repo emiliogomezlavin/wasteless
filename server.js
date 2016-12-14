@@ -44,7 +44,7 @@ passport.deserializeUser( function (id, done){
 
 // Routes
 const apiRoutes = require('./routes/api');
-server.use('/api', restrict, apiRoutes);
+server.use('/api', restrictApi, apiRoutes);
 
 // Auth
 const authRoutes = require('./routes/auth');
@@ -58,12 +58,18 @@ server.get('/home', restrict, function(req, res) {
 
 // Auth Helper Function - Needs to be called after authenticate
 function restrict(req, res, next) {
-  console.log(req.session)
   if (!req.session) {
     res.redirect('/');
-    req.session.error = 'Access denied!';
+    res.session.error = 'Access denied!';
   }
   next()
+}
+
+// Restrics /api endpoints since they are for internal use
+function restrictApi(req, res, next) {
+  if(req){
+    res.redirect('/home')
+  }
 }
 
 // Headers config

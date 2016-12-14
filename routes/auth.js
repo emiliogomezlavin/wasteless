@@ -31,7 +31,7 @@ router.post('/sign_in', function(req,res,next){
             err: "Could not login user"
           });
         }
-        res.redirect('/api/dashboard');
+        res.redirect('/home');
       })
     }
     else{
@@ -48,16 +48,5 @@ router.get('/sign_out', authHelpers.loginRequired, function(req,res,next){
   handleResponse(res, 200, 'success');
 });
 
-
-// Helper
-
-function handleLogin(req, user) {
-  return new Promise((resolve, reject) => {
-    req.login(user, (err) => {
-      if (err) {reject(err);}
-      resolve();
-    });
-  });
-}
 
 module.exports = router;
