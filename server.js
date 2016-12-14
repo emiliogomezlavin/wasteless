@@ -44,8 +44,16 @@ passport.deserializeUser( function (id, done){
 
 
 // Helpers for passport this will check for ifLoggedin
-// const authCheck = require('./helpers/auth-check');
+// const restrict = require('./helpers/auth-check');
 // server.use('/api', authCheck);
+// AUTH Helper Function 
+function restrict(req, res, next) {
+  if (req.session.user) {
+    next();
+  }
+  req.session.error = 'Access denied!';
+  res.redirect('/');
+}
 
 // Routes
 const apiRoutes = require('./routes/api');
@@ -53,14 +61,6 @@ server.use('/api', restrict, apiRoutes);
 
 // const  authRoutes = require('./routes/auth');
 // server.use('/auth', authRoutes);
-function restrict(req, res, next) {
-  if (req.session.user) {
-    next();
-  } else {
-    req.session.error = 'Access denied!';
-    res.redirect('/');
-  }
-}
 
 
 // Landing page route for now
