@@ -42,25 +42,13 @@ passport.deserializeUser( function (id, done){
   });
 })
 
-
-// Helpers for passport this will check for ifLoggedin
-// const restrict = require('./helpers/auth-check');
-// server.use('/api', authCheck);
-// AUTH Helper Function 
-function restrict(req, res, next) {
-  if (req.session.user) {
-    next();
-  }
-  req.session.error = 'Access denied!';
-  res.redirect('/');
-}
-
 // Routes
 const apiRoutes = require('./routes/api');
 server.use('/api', restrict, apiRoutes);
 
-// const  authRoutes = require('./routes/auth');
-// server.use('/auth', authRoutes);
+// Auth
+const authRoutes = require('./routes/auth');
+server.use('/', authRoutes)
 
 
 // Landing page route for now
@@ -68,28 +56,15 @@ server.get('/home', restrict, function(req, res) {
   res.sendFile(path.join(__dirname + '/app/public/landing-page.html'))
 })
 
-
-// AUTH Post -- Sign in route
-server.post('/sign_in', function(req,res,next){
-  passport.authenticate('local', function(err, user, info){
-    if(!req.isAuthenticated()) {
-      req.login(user, function(err){
-        if(err){
-          return res.status(500).json({
-            err: "Could not login user"
-          });
-        }
-        res.redirect('/api/dashboard');
-      })
-    }
-    else{
-      // response when user is already logged in
-      res.redirect('/home');
-    }
-  })(req, res, next)
-});
-
-
+// Auth Helper Function - Needs to be called after authenticate
+function restrict(req, res, next) {
+  console.log(req.session)
+  if (!req.session) {
+    res.redirect('/');
+    req.session.error = 'Access denied!';
+  }
+  next()
+}
 
 // Headers config
 const allowCrossDomain = function(req, res, next) {

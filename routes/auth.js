@@ -23,21 +23,24 @@ function handleResponse (res, code, statusMsg){
 
 // Post -- Sign in route
 router.post('/sign_in', function(req,res,next){
-
-  console.log("body");
   passport.authenticate('local', function(err, user, info){
-    if(user) {
-      handleResponse(res, 200, 'success');
-      res.redirect('/api/dashboard');
+    if(!req.isAuthenticated()) {
+      req.login(user, function(err){
+        if(err){
+          return res.status(500).json({
+            err: "Could not login user"
+          });
+        }
+        res.redirect('/api/dashboard');
+      })
     }
-    if (!user) {
-      handleResponse(res, 404, 'user not found');
-    }
-    if(err) {
-      handleResponse(res, 500, 'error');
+    else{
+      // response when user is already logged in
+      res.redirect('/home');
     }
   })(req, res, next)
 });
+
 
 // Get -- Logout
 router.get('/sign_out', authHelpers.loginRequired, function(req,res,next){
