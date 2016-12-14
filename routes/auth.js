@@ -23,7 +23,7 @@ function handleResponse (res, code, statusMsg){
 
 // Post -- Sign in route
 router.post('/sign_in', function(req,res,next){
-  
+
   console.log("body");
   return;
   passport.authenticate('local', function(err, user, info){
@@ -33,7 +33,7 @@ router.post('/sign_in', function(req,res,next){
     }
     if (!user) {
       handleResponse(res, 404, 'user not found');
-    } 
+    }
     if(err) {
       handleResponse(res, 500, 'error');
     }
