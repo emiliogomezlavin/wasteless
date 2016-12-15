@@ -12,17 +12,53 @@
 <body>
 	<h1>Hello World!</h1>
 
-	<form class="form-inline" role="form" method="POST" action="/sign_in">
-		<div class="form-group">
-			<label class="sr-only" for="username"></label> Username
-			<input type="text" name="username" id="username" placeholder="Enter your username..." class="username form-control" required>
+	<div class="container">
+		<div class="row">
+			<form class="form-inline" role="form" method="POST" action="/sign_in">
+				<div class="form-group">
+					<label class="sr-only" for="username"></label> Username
+					<input type="text" name="username" id="username" placeholder="Enter your username..." class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label class="sr-only" for="password"></label> Password
+					<input type="password" name="password" id="password" placeholder="Enter your password..." class="form-control" required>
+				</div>
+				<button type="submit" class="btn" id="login">Login</button>
+			</form>
 		</div>
-		<div class="form-group">
-			<label class="sr-only" for="password"></label> Password
-			<input type="text" name="password" id="password" placeholder="Enter your password..." class="password form-control" required>
+		<div class="row">
+			<form class="form-inline" role="form" method="POST" action="/sign_up">
+				<div class="form-group">
+					<label class="sr-only" for="first_name"></label> Name
+					<input type="text" name="first_name" id="first_name" placeholder="Enter your first name..." class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label class="sr-only" for="last_name"></label> Last Name
+					<input type="text" name="last_name" id="last_name" placeholder="Enter your last name..." class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label class="sr-only" for="email"></label> Email
+					<input type="text" name="email" id="email" placeholder="Enter your email..." class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label class="sr-only" for="username"></label> Username
+					<input type="text" name="username" id="username" placeholder="Choose your username..." class="form-control" required>
+				</div>
+				<div class="form-group">
+					<label class="sr-only" for="password"></label> Password
+					<input type="password" name="password" id="password" placeholder="Password" class="form-control" required>
+				</div>
+				<!-- <div class="form-group">
+					<label class="sr-only" for="confirmation_password"></label> Password Confirmation
+					<input type="password" name="confirmation_password" id="confirmation_password" placeholder="Password Confirmation" class="form-control" required>
+				</div> -->
+				<button type="submit" class="btn" id="login">Sign Up</button>
+			</form>
 		</div>
-		<button type="submit" class="btn" id="login">Login</button>
-	</form>
+	</div>
+	
+
+	
 
 </body>
 </html>

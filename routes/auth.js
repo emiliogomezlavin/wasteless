@@ -4,21 +4,18 @@ const express = require('express'),
       authHelpers = require('../auth/_helper');
 
 // Post -- register route
-router.post('/sign_up', authHelpers.loginRedirect, function(req, res, next){
+router.post('/sign_up', function(req, res, next){
   return authHelpers.createUser(req, res)
     .then(function (res){
       passport.authenticate('local', function(err, user, info){
         if (user){
-          handleResponse(res, 200, 'success');
+          res.redirect('/home');
         }
       })(req, res, next);
     })
-    .catch(function(err){ handelResponse(res, 500, 'error')});
+    res.redirect('/');
   });
 
-function handleResponse (res, code, statusMsg){
-  res.status(code).json({status: statusMsg});
-}
 
 
 // Post -- Sign in route
@@ -43,9 +40,9 @@ router.post('/sign_in', function(req,res,next){
 
 
 // Get -- Logout
-router.get('/sign_out', authHelpers.loginRequired, function(req,res,next){
+router.get('/sign_out', function(req,res,next){
   req.logout();
-  handleResponse(res, 200, 'success');
+  res.redirect('/');
 });
 
 

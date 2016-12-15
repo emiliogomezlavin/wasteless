@@ -6,6 +6,7 @@ function comparePass (userPassword, databasePassword){
 };
 
 function createUser (req){
+  console.log(req.body);
   const salt = bcrypt.genSaltSync();
   const hash = bcrypt.hashSync(req.body.password, salt);
   return knex('users')
@@ -15,7 +16,7 @@ function createUser (req){
       email: req.body.email,
       first_name: req.body.first_name,
       last_name: req.body.last_name,
-      donator: req.body.donator
+      donator: false
     })
     .returning('*');
 }
