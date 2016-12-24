@@ -7,14 +7,21 @@ const express = require('express'),
 router.post('/sign_up', function(req, res, next){
   return authHelpers.createUser(req, res)
     .then(function (res){
+      console.log(res)
       passport.authenticate('local', function(err, user, info){
+        console.log(user)
+        console.log(res)
         if (user){
-          res.redirect('/home');
+          handleResponse(res)
         }
+        // user.redirect('/');
       })(req, res, next);
     })
-    res.redirect('/');
   });
+
+function handleResponse(res) {
+  res.json({"shit": "damn"});
+}
 
 
 
@@ -42,7 +49,12 @@ router.post('/sign_in', function(req,res,next){
 // Get -- Logout
 router.get('/sign_out', function(req,res,next){
   req.logout();
-  res.redirect('/');
+  req.session.save(function (err) {
+    if(err){
+      return next(err)
+    }
+    res.redirect('/');
+  })
 });
 
 
