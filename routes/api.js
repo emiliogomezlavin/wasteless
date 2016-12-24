@@ -2,17 +2,17 @@ const express = require('express'),
       router = new express.Router();
 
 // User profile
-router.get('/:id', function ()(req, res) {
+router.get('/:id', function(req, res) {
   res.json({
     message: "This is the id api endpoint"
   })
 })
-router.update('/:id/edit', function ()(req, res) {
+router.put('/:id/edit', function(req, res) {
   res.json({
     message: "This is the id/edit api endpoint"
   })
 })
-router.delete('/:id/delete', function ()(req, res) {
+router.delete('/:id/delete', function(req, res) {
   res.json({
     message: "This is the delete api endpoint"
   })
@@ -41,7 +41,7 @@ router.post('/donations/new', donatorHelper, function (req, res) {
     donations: "list all donations"
   })
 })
-router.update('/donations/:id/edit', function (req, res) {
+router.put('/donations/:id/edit', function (req, res) {
   res.json({
     donations: "list all donations"
   })
