@@ -40,12 +40,11 @@ exports.seed = function(knex, Promise) {
       })
     })
     .then(function () {
-      console.log("gets here")
       return knex('donation_users').insert({
         id: 1,
         donation_id: 1,
-        interested_user_id: 2
-        // message: "I want it!"
+        interested_user_id: 2,
+        message: "I want it!"
       })
     });
 };

@@ -14,7 +14,7 @@ exports.up = function(knex, Promise) {
       .inTable('users')
       .onDelete('CASCADE')
       .index();
-    // table.string('message').notNullable().defaultTo('');
+    table.string('message').notNullable().defaultTo('');
     table.timestamp('created_at').notNullable().defaultTo(knex.raw('now()'));
   });
 };
