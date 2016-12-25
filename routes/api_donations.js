@@ -1,5 +1,6 @@
 const express = require('express'),
       knex = require('../models/database'),
+      handleResponse = require('../helpers/api_helper'),
       router = new express.Router();
 
 // Index of all donations
@@ -10,7 +11,8 @@ router.get('/', function (req, res) {
       res.json({
         data: data
       })
-    });
+    })
+    .catch(handleResponse); 
 })
 
 // Create new donation
@@ -27,6 +29,7 @@ router.post('/new', function (req, res) {
         data: data
       })
     })
+    .catch(handleResponse);
 })
 
 // Show donation
@@ -38,7 +41,8 @@ router.get('/:id', function (req, res) {
       res.json({
         data: data
       })
-    });
+    })
+    .catch(handleResponse);
 })
 
 // Edit selected donation
@@ -55,6 +59,7 @@ router.put('/:id', function (req, res) {
         data: data
       })
     })
+    .catch(handleResponse);
 })
 
 // Delete seleceted donation
