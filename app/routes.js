@@ -10,6 +10,7 @@ import PastDonations from './components/past_donations.js'
 import Pickups from './components/pickups.js'
 import LeaderBoard  from './components/leader_board.js'
 import Following from './components/following.js'
+import Donations from './components/donations.js'
 import Profile from './components/profile.js'
 
 
@@ -26,6 +27,7 @@ const routes = (
       <Route path='/leaderboard' component={LeaderBoard} />
       <Route path='/following' component={Following} />
       <Route path='/profile' component={Profile} />
+      <Route path='/donations' component={Donations} />
       <Route path="*" component={Whoops404} />
     </Route>
   </Router>
