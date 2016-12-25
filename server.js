@@ -45,11 +45,9 @@ passport.deserializeUser( function (id, done){
 // Routes
 const apiUserRoutes = require('./routes/api_users');
 server.use('/api/users', apiUserRoutes); // took off the restrictApi helper function
-// console.log(apiUserRoutes)
 
 const apiDonationRoutes = require('./routes/api_donations');
 server.use('/api/donations', apiDonationRoutes);
-// console.log(apiDonationRoutes);
 
 // Auth
 const authRoutes = require('./routes/auth');
