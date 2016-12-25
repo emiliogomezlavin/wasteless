@@ -10,6 +10,7 @@ exports.seed = function(knex, Promise) {
       const hash = bcrypt.hashSync('123456', salt);
       return knex('users').insert({
         id: 1,
+        session_id: "lñsdkfjgkajdl94t40y9w3t3y",
         username: 'benyang',
         password: hash,
         email: 'ben@puto.com',
@@ -23,6 +24,7 @@ exports.seed = function(knex, Promise) {
       const hash = bcrypt.hashSync('123456', salt);
       return knex('users').insert({
         id: 2,
+        session_id: "lñsdkfjgkajdl94t40y9w3t2345y",
         username: 'mattlag',
         password: hash,
         email: 'matt@cool.com',

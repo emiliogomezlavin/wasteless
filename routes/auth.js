@@ -7,21 +7,11 @@ const express = require('express'),
 router.post('/sign_up', function(req, res, next){
   return authHelpers.createUser(req, res)
     .then(function (res){
-      console.log(res)
       passport.authenticate('local', function(err, user, info){
-        console.log(user)
-        console.log(res)
-        if (user){
-          handleResponse(res)
-        }
-        // user.redirect('/');
+      res.redirect('/home');
       })(req, res, next);
     })
   });
-
-function handleResponse(res) {
-  res.json({"shit": "damn"});
-}
 
 
 

@@ -7,10 +7,12 @@ function comparePass (userPassword, databasePassword){
 
 function createUser (req){
   console.log(req.body);
+  console.log(req.session.id)
   const salt = bcrypt.genSaltSync();
   const hash = bcrypt.hashSync(req.body.password, salt);
   return knex('users')
     .insert({
+      session_id: req.session.id,
       username: req.body.username,
       password: hash,
       email: req.body.email,
