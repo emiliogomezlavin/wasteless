@@ -56,14 +56,13 @@ server.use('/', authRoutes)
 
 // Landing page route for now
 server.get('/home', restrict, function(req, res) {
-  res.sendFile(path.join(__dirname + '/app/public/landing-page.html'))
+  res.sendFile(path.join(__dirname + '/app/public/home.html'))
 })
 
 // Auth Helper Function - Needs to be called after authenticate
 function restrict(req, res, next) {
   if (!req.session) {
     res.redirect('/');
-    res.session.error = 'Access denied!';
   }
   next()
 }
