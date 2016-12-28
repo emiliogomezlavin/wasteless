@@ -21,13 +21,14 @@ const NotFoundRoute = Router.NotFoundRoute
 const routes = (
   <Router history={appHistory}>
     <Route component={Main} >
-      <Route path='/' component={Dashboard} />
-      <Route path='/past_donations' component={PastDonations} />
-      <Route path='/upcoming_pickups' component={Pickups} />
-      <Route path='/leaderboard' component={LeaderBoard} />
-      <Route path='/following' component={Following} />
-      <Route path='/profile' component={Profile} />
-      <Route path='/donations' component={Donations} />
+      <Route path='/' component={Dashboard}>    
+        <Route path='/past_donations' component={PastDonations} />
+        <Route path='/upcoming_pickups' component={Pickups} />
+        <Route path='/leaderboard' component={LeaderBoard} />
+        <Route path='/following' component={Following} />
+        <Route path='/profile' component={Profile} />
+        <Route path='/donations' component={Donations} />
+      </Route>
       <Route path="*" component={Whoops404} />
     </Route>
   </Router>

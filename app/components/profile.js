@@ -14,13 +14,13 @@ class Profile extends React.Component {
       this.serverRequest =
         axios.get('/sign_in')
           .then(function(res){
-            console.log(res.data.passport)
+            // console.log(res.data.passport)
             currentSession = res.data.passport.user;
           }.bind(this))
         .then(function(){
           axios.get('/api/users/' + currentSession)
             .then(function(res){
-              console.log(res.data);
+              // console.log(res.data);
               _this.setState({
                 user: res.data
             })
@@ -32,7 +32,7 @@ class Profile extends React.Component {
     render() {
       if (this.state.user) {
         return (
-          <div id="user">
+          <section id="user">
             <div className="container">
               {this.state.user.data.map(function(user, index){
                 return (
@@ -46,11 +46,11 @@ class Profile extends React.Component {
                 )
               })}
             </div>
-          </div>
+          </section>
         )
     }
 
-    return (<div>Loading... </div>)
+    return (<div id="user">You need to login...</div>)
     }
 }
 
