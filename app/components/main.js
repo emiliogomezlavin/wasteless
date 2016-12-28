@@ -15,6 +15,7 @@ export default class Main extends React.Component {
                         <li><Link to="/" activeClassName="active">Dashboard</Link></li>
                         <li><Link to="/profile" activeClassName="active">Profile</Link></li>
                         <li><Link to="/past_donations" activeClassName="active">Past Donations</Link></li>
+                        <li><form action="/sign_out" method="post"><button className="btn" value="Sign Out">Sign Out</button></form></li>
                     </ul>
                 </div>
             </div>

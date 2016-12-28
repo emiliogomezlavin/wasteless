@@ -44,7 +44,7 @@ router.get('/sign_in', function(req,res,next){
 
 
 // Get -- Logout
-router.get('/sign_out', function(req,res,next){
+router.post('/sign_out', function(req,res,next){
   req.logout();
   req.session.save(function (err) {
     if(err){

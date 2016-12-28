@@ -11,7 +11,7 @@ class Dashboard extends React.Component {
       let _this = this;
       let currentSession;
 
-      this.serverRequest = 
+      this.serverRequest =
         axios.get('/sign_in')
           .then(function(res){
             console.log(res.data.passport)
@@ -37,18 +37,31 @@ class Dashboard extends React.Component {
       console.log(this.state);
       if (this.state.user) {
         return (
-            <div id="user">
-            {this.state.user.data.map(function(user, index){
-              return (
-                <div key={index}>
-                  <li><h1> {user.first_name}</h1></li>
-                  <li><h1> {user.last_name}</h1></li>
-                  <li><h1> {user.email}</h1></li>
-                </div>
-              )
-            })}
-
+          <div id="user">
+            <div className="container">
+              {this.state.user.data.map(function(user, index){
+                return (
+                  <div key={index}>
+                    <ul className="user-profile">
+                      <li>{user.first_name}</li>
+                      <li>{user.last_name}</li>
+                      <li>{user.email}</li>
+                    </ul>
+                  </div>
+                )
+              })}
             </div>
+            <div className="left">
+              <ul>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+                <li><a href="#">Link</a></li>
+              </ul>
+              <a href="#" class="open">&rarr;</a>
+            </div>
+          </div>
         )
     }
 
