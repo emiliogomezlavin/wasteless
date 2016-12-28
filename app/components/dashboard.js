@@ -1,71 +1,27 @@
 import axios from 'axios'
 import React from 'react'
+import { Link } from 'react-router';
+import Profile from './profile.js'
 
 class Dashboard extends React.Component {
-  constructor(props){
-      super(props);
-      this.state = {users: null};
-    }
-
-    componentDidMount(){
-      let _this = this;
-      let currentSession;
-
-      this.serverRequest =
-        axios.get('/sign_in')
-          .then(function(res){
-            console.log(res.data.passport)
-            currentSession = res.data.passport.user;
-          }.bind(this))
-        .then(function(){
-          axios.get('/api/users/' + currentSession)
-            .then(function(res){
-              console.log(res.data);
-              _this.setState({
-                user: res.data
-            })
-          }.bind(this));
-        })
-
-    }
-
-    // componentWillUnmount(){
-    //   this.serverRequest.abort()
-    // }
 
     render() {
-      console.log(this.state);
-      if (this.state.user) {
-        return (
-          <div id="user">
-            <div className="container">
-              {this.state.user.data.map(function(user, index){
-                return (
-                  <div key={index}>
-                    <ul className="user-profile">
-                      <li>{user.first_name}</li>
-                      <li>{user.last_name}</li>
-                      <li>{user.email}</li>
-                    </ul>
-                  </div>
-                )
-              })}
-            </div>
-            <div className="left">
-              <ul>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
-                <li><a href="#">Link</a></li>
+      return (
+        <div>
+          <div id="sidebar-wrapper">
+            <nav id="spy">
+              <ul className="sidebar-nav nav">
+                <li><Link to="/" activeClassName="active">Dashboard</Link></li>
+                <li><Link to="/" activeClassName="active">Link 1</Link></li>
+                <li><Link to="/" activeClassName="active">Link 2</Link></li>
+                <li><Link to="/" activeClassName="active">Link 3</Link></li>
+                <li><Link to="/" activeClassName="active">Link 4</Link></li>
               </ul>
-              <a href="#" className="open">&rarr;</a>
-            </div>
+            </nav>
           </div>
-        )
-    }
-
-    return (<div>Loading... </div>)
+        <Profile />
+      </div>
+      )
     }
 }
 
