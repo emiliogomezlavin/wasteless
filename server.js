@@ -61,8 +61,8 @@ server.get('/home', restrict, function(req, res) {
 
 // Auth Helper Function - Needs to be called after authenticate
 function restrict(req, res, next) {
-  console.log(req.session)
-  if (!req.session) {
+  console.log(req.session.username)
+  if (!req.session.username) {
     res.redirect('/');
   }
   next()

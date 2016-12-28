@@ -46,12 +46,13 @@ router.get('/sign_in', function(req,res,next){
 // Get -- Logout
 router.post('/sign_out', function(req,res,next){
   req.logout();
+  req.session.username = null
   req.session.save(function (err) {
     if(err){
       return next(err)
     }
-    res.redirect('/');
   })
+  res.redirect('/');
 });
 
 
