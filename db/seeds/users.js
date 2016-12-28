@@ -16,6 +16,12 @@ exports.seed = function(knex, Promise) {
         email: 'ben@puto.com',
         first_name: 'Benito',
         last_name: 'Camelo',
+        company_name: 'Taquería Benito',
+        address: '123 Example St',
+        city: 'San Francisco',
+        state: 'CA',
+        postal_code: '94102',
+        phone_number: '4155678910',
         donator: true
       })
     })

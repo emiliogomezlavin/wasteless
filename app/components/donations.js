@@ -22,9 +22,9 @@ class Donations extends React.Component {
 	  	}.bind(this));
   }
 
-  componentWillUnmount(){
-  	this.serverRequest.abort()
-  }
+  // componentWillUnmount(){
+  // 	this.serverRequest.abort()
+  // }
 
   render() {
   	console.log(this.state)

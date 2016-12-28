@@ -8,12 +8,12 @@ router.post('/sign_up', function(req, res, next){
   return authHelpers.createUser(req, res)
     .then(function (res){
       passport.authenticate('local', function(err, user, info){
-      res.redirect('/home');
+        req.session.username = user.username;
+        req.session.save();
+        res.redirect('/home');
       })(req, res, next);
     })
   });
-
-
 
 // Post -- Sign in route
 router.post('/sign_in', function(req,res,next){
@@ -25,6 +25,8 @@ router.post('/sign_in', function(req,res,next){
             err: "Could not login user"
           });
         }
+        req.session.username = user.username;
+        req.session.save();
         res.redirect('/home');
       })
     }
@@ -33,6 +35,11 @@ router.post('/sign_in', function(req,res,next){
       res.redirect('/home');
     }
   })(req, res, next)
+});
+
+
+router.get('/sign_in', function(req,res,next){
+  res.send(req.session);
 });
 
 

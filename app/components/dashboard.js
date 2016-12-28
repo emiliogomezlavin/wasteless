@@ -1,13 +1,59 @@
+import axios from 'axios'
 import React from 'react'
 
 class Dashboard extends React.Component {
-  render() {
-    return (
-      <div id="dashboard">
-        <h1>Dashboard!!!</h1>
-      </div>
-    )
-  }
+  constructor(props){
+      super(props);
+      this.state = {users: null};
+    }
+
+    componentDidMount(){
+      let _this = this;
+      let currentSession;
+
+      this.serverRequest = 
+        axios.get('/sign_in')
+          .then(function(res){
+            console.log(res.data.passport)
+            currentSession = res.data.passport.user;
+          }.bind(this))
+        .then(function(){
+          axios.get('/api/users/' + currentSession)
+            .then(function(res){
+              console.log(res.data);
+              _this.setState({
+                user: res.data
+            })
+          }.bind(this));
+        })
+
+    }
+
+    // componentWillUnmount(){
+    //   this.serverRequest.abort()
+    // }
+
+    render() {
+      console.log(this.state);
+      if (this.state.user) {
+        return (
+            <div id="user">
+            {this.state.user.data.map(function(user, index){
+              return (
+                <div key={index}>
+                  <li><h1> {user.first_name}</h1></li>
+                  <li><h1> {user.last_name}</h1></li>
+                  <li><h1> {user.email}</h1></li>
+                </div>
+              )
+            })}
+
+            </div>
+        )
+    }
+
+    return (<div>Loading... </div>)
+    }
 }
 
 export default Dashboard

@@ -21,7 +21,7 @@ router.get('/:id', function(req, res) {
       data: data
     })
   })
-  .catch(handleResponse)
+  .catch(handleResponse) 
 })
 
 router.put('/:id', function(req, res) {
