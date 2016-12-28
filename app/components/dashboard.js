@@ -59,7 +59,7 @@ class Dashboard extends React.Component {
                 <li><a href="#">Link</a></li>
                 <li><a href="#">Link</a></li>
               </ul>
-              <a href="#" class="open">&rarr;</a>
+              <a href="#" className="open">&rarr;</a>
             </div>
           </div>
         )

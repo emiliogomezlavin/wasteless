@@ -27492,7 +27492,7 @@
 	            ),
 	            _react2['default'].createElement(
 	              'a',
-	              { href: '#', 'class': 'open' },
+	              { href: '#', className: 'open' },
 	              '→'
 	            )
 	          )

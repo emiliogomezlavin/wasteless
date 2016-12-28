@@ -1,0 +1,36 @@
+.left {
+  position:fixed; // keep fixed to window
+  padding: 10px;
+  top: 0; left: 0; // position to top left of window
+  height:100%; width:50px; //set dimensions
+  background:darkslategray;
+  transition: width ease .5s; // fluid transition when resizing
+  ul {
+    list-style:none;
+    margin:0; padding:0;
+
+    li {
+      margin-bottom:25px;
+    }
+  }
+
+  a {
+    color:shade(darkslategray, 50%);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    transition:
+      color ease .35s,
+      border-bottom-color ease .35s;
+
+    &:hover {
+       color:white;
+       border-bottom-color:white;
+    }
+
+    &.open {
+      font-size:1.75rem;
+      font-weight:700;
+      border:0;
+    }
+  }
+}
