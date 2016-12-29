@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React from 'react'
+import { Link } from 'react-router';
 
 class Profile extends React.Component {
   constructor(props){
@@ -37,10 +38,16 @@ class Profile extends React.Component {
               {this.state.user.data.map(function(user, index){
                 return (
                   <div key={index}>
+                    <h3>{user.username}&rsquo;s Profile</h3>
                     <ul className="user-profile">
-                      <li>{user.first_name}</li>
-                      <li>{user.last_name}</li>
-                      <li>{user.email}</li>
+                      <li>First Name: {user.first_name}</li>
+                      <li>Last Name: {user.last_name}</li>
+                      <li>Email: {user.email}</li>
+                      <li>Address: {user.address}</li>
+                      <li>City: {user.city}</li>
+                      <li>State: {user.state}</li>
+                      <li>Phone Number: {user.phone_number}</li>
+                      <li><Link to="/edit_profile">Edit Profile</Link></li>
                     </ul>
                   </div>
                 )

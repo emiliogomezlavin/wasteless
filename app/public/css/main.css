@@ -67,6 +67,12 @@
 .navbar {
   margin-bottom: 0px !important;
 }
+.navbar-nav {
+  float: right;
+}
+.sign-out {
+  margin-top: 5px;
+}
 
 /* DASHBOARD */
 .dashboard-view {
@@ -74,6 +80,12 @@
   display: inline;
   left: 260px;
   margin-top: 75px;
+}
+.user-profile li {
+  list-style-type: none;
+}
+ul.user-profile {
+  padding: 0;
 }
 #user {
   position: fixed;
