@@ -94,11 +94,11 @@
 
 	var _componentsProfileJs2 = _interopRequireDefault(_componentsProfileJs);
 
-	var _componentsPartialsProfile_editJs = __webpack_require__(293);
+	var _componentsPartialsProfile_editJs = __webpack_require__(289);
 
 	var _componentsPartialsProfile_editJs2 = _interopRequireDefault(_componentsPartialsProfile_editJs);
 
-	var _history = __webpack_require__(289);
+	var _history = __webpack_require__(290);
 
 	var appHistory = (0, _reactRouter.useRouterHistory)(_history.createHashHistory)({ queryKey: false });
 	var NotFoundRoute = _reactRouter.Router.NotFoundRoute;
@@ -29008,7 +29008,6 @@
 	      var currentSession = undefined;
 
 	      this.serverRequest = _axios2['default'].get('/sign_in').then((function (res) {
-	        // console.log(res.data.passport)
 	        currentSession = res.data.passport.user;
 	      }).bind(this)).then(function () {
 	        _axios2['default'].get('/api/users/' + currentSession).then((function (res) {
@@ -31012,6 +31011,61 @@
 /* 289 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var EditProfile = (function (_React$Component) {
+	  _inherits(EditProfile, _React$Component);
+
+	  function EditProfile() {
+	    _classCallCheck(this, EditProfile);
+
+	    _get(Object.getPrototypeOf(EditProfile.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(EditProfile, [{
+	    key: "render",
+	    value: function render() {
+	      console.log(this.state.user);
+	      return _react2["default"].createElement(
+	        "div",
+	        { id: "edit-profile-form" },
+	        _react2["default"].createElement(
+	          "h3",
+	          null,
+	          "Edit Profile"
+	        )
+	      );
+	    }
+	  }]);
+
+	  return EditProfile;
+	})(_react2["default"].Component);
+
+	exports["default"] = EditProfile;
+	module.exports = exports["default"];
+
+/***/ },
+/* 290 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	exports.__esModule = true;
@@ -31050,7 +31104,7 @@
 
 	exports.useBasename = _useBasename3['default'];
 
-	var _useBeforeUnload2 = __webpack_require__(290);
+	var _useBeforeUnload2 = __webpack_require__(291);
 
 	var _useBeforeUnload3 = _interopRequireDefault(_useBeforeUnload2);
 
@@ -31070,13 +31124,13 @@
 
 	// deprecated
 
-	var _enableBeforeUnload2 = __webpack_require__(291);
+	var _enableBeforeUnload2 = __webpack_require__(292);
 
 	var _enableBeforeUnload3 = _interopRequireDefault(_enableBeforeUnload2);
 
 	exports.enableBeforeUnload = _enableBeforeUnload3['default'];
 
-	var _enableQueries2 = __webpack_require__(292);
+	var _enableQueries2 = __webpack_require__(293);
 
 	var _enableQueries3 = _interopRequireDefault(_enableQueries2);
 
@@ -31085,7 +31139,7 @@
 	exports.createLocation = createLocation;
 
 /***/ },
-/* 290 */
+/* 291 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -31202,7 +31256,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 291 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31215,7 +31269,7 @@
 
 	var _deprecate2 = _interopRequireDefault(_deprecate);
 
-	var _useBeforeUnload = __webpack_require__(290);
+	var _useBeforeUnload = __webpack_require__(291);
 
 	var _useBeforeUnload2 = _interopRequireDefault(_useBeforeUnload);
 
@@ -31223,7 +31277,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 292 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -31242,61 +31296,6 @@
 
 	exports['default'] = _deprecate2['default'](_useQueries2['default'], 'enableQueries is deprecated, use useQueries instead');
 	module.exports = exports['default'];
-
-/***/ },
-/* 293 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var EditProfile = (function (_React$Component) {
-	  _inherits(EditProfile, _React$Component);
-
-	  function EditProfile() {
-	    _classCallCheck(this, EditProfile);
-
-	    _get(Object.getPrototypeOf(EditProfile.prototype), "constructor", this).apply(this, arguments);
-	  }
-
-	  _createClass(EditProfile, [{
-	    key: "render",
-	    value: function render() {
-	      console.log(this.state.user);
-	      return _react2["default"].createElement(
-	        "div",
-	        { id: "edit-profile-form" },
-	        _react2["default"].createElement(
-	          "h3",
-	          null,
-	          "Edit Profile"
-	        )
-	      );
-	    }
-	  }]);
-
-	  return EditProfile;
-	})(_react2["default"].Component);
-
-	exports["default"] = EditProfile;
-	module.exports = exports["default"];
 
 /***/ }
 /******/ ]);

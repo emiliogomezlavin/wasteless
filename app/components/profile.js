@@ -15,7 +15,6 @@ class Profile extends React.Component {
       this.serverRequest =
         axios.get('/sign_in')
           .then(function(res){
-            // console.log(res.data.passport)
             currentSession = res.data.passport.user;
           }.bind(this))
         .then(function(){

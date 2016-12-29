@@ -1,8 +1,10 @@
 const express = require('express'),
       router = new express.Router(),
       passport = require('../auth/local'),
+      cookieParser = require('cookie-parser'),
       authHelpers = require('../auth/_helper');
 
+router.use(cookieParser());
 // Post -- register route
 router.post('/sign_up', function(req, res, next){
   return authHelpers.createUser(req, res)
