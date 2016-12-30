@@ -44,7 +44,6 @@ html{
 }
 header .intro-text {
 	padding-top: 250px;
-	padding-bottom: 200px;
 	text-align: center;
 }
 @media(min-width: 200px) and (max-width: 900px){
@@ -118,7 +117,7 @@ header .intro-text {
 .sidebar-nav li a:hover,
 .sidebar-nav li.active {
   color: #fff;
-  background: rgba(255,255,255,0.2);
+  background: #a3d8d6;
   text-decoration: none;
 }
 .sidebar-nav li a:active,
@@ -134,7 +133,7 @@ header .intro-text {
   color: #999999;
 }
 .sidebar-nav > .sidebar-brand a:hover {
-  color: #fff;
+  color: #a3d8d6;
   background: none;
 }
 .navbar {
