@@ -21,6 +21,10 @@ html{
 	background: rgba(0,0,0,0.4);
 	height: 100vh;
 }
+.intro hr {
+  margin-left: 5px;
+  margin-right: 5px;
+}
 .intro h1 {
 	color: #fff;
 	margin-top: 0;
