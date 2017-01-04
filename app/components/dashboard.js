@@ -9,7 +9,7 @@ class Dashboard extends React.Component {
       return (
         <div>
           <div id="dashboard">
-            <h2>Welcome to the dashboard</h2>
+            <h2>Welcome to the WasteLess dashboard</h2>
           </div>
           <div id="sidebar-wrapper">
             <nav id="spy">

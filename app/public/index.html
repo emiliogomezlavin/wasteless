@@ -4,54 +4,76 @@
 	<title></title>
 	<!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		<link rel="stylesheet" href="/css/main.css" media="screen" title="no title">
+
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
 
 
 
 </head>
 <body>
-	<h1>Hello World!</h1>
+<header id="header">
+  <div class="intro">
+    <div class="overlay">
+      <div class="container">
+        <div class="row">
+          <div class="intro-text">
+            <h1 class"intro-title">Welcome the WasteLess</h1>
+         </div>
+        </div>
+      </div>
+			<div class="sign-in-form container">
+				<div class="row">
+					<h3>Sign In</h3>
+					<hr>
+					<form class="form-inline" role="form" method="POST" action="/sign_in">
+						<div class="form-group">
+							<label class="sr-only" for="username"></label> Username
+							<input type="text" name="username" id="username" placeholder="Enter your username..." class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="password"></label> Password
+							<input type="password" name="password" id="password" placeholder="Enter your password..." class="form-control" required>
+						</div>
+						<button type="submit" class="btn" id="login">Login</button>
+					</form>
+				</div>
+				<div class="row">
+					<h3>Or Sign Up</h3>
+					<hr>
+					<form class="form-inline" role="form" method="POST" action="/sign_up">
+						<div class="form-group">
+							<label class="sr-only" for="first_name"></label> Name
+							<input type="text" name="first_name" id="first_name" placeholder="Enter your first name..." class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="last_name"></label> Last Name
+							<input type="text" name="last_name" id="last_name" placeholder="Enter your last name..." class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="email"></label> Email
+							<input type="text" name="email" id="email" placeholder="Enter your email..." class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="username"></label> Username
+							<input type="text" name="username" id="username" placeholder="Choose your username..." class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="password"></label> Password
+							<input type="password" name="password" id="password" placeholder="Password" class="form-control" required>
+						</div>
+						<button type="submit" class="btn" id="login">Sign Up</button>
+					</form>
+				</div>
+			</div>
+    </div>
+  </div>
+</header>
 
-	<div class="container">
-		<div class="row">
-			<form class="form-inline" role="form" method="POST" action="/sign_in">
-				<div class="form-group">
-					<label class="sr-only" for="username"></label> Username
-					<input type="text" name="username" id="username" placeholder="Enter your username..." class="form-control" required>
-				</div>
-				<div class="form-group">
-					<label class="sr-only" for="password"></label> Password
-					<input type="password" name="password" id="password" placeholder="Enter your password..." class="form-control" required>
-				</div>
-				<button type="submit" class="btn" id="login">Login</button>
-			</form>
-		</div>
-		<div class="row">
-			<form class="form-inline" role="form" method="POST" action="/sign_up">
-				<div class="form-group">
-					<label class="sr-only" for="first_name"></label> Name
-					<input type="text" name="first_name" id="first_name" placeholder="Enter your first name..." class="form-control" required>
-				</div>
-				<div class="form-group">
-					<label class="sr-only" for="last_name"></label> Last Name
-					<input type="text" name="last_name" id="last_name" placeholder="Enter your last name..." class="form-control" required>
-				</div>
-				<div class="form-group">
-					<label class="sr-only" for="email"></label> Email
-					<input type="text" name="email" id="email" placeholder="Enter your email..." class="form-control" required>
-				</div>
-				<div class="form-group">
-					<label class="sr-only" for="username"></label> Username
-					<input type="text" name="username" id="username" placeholder="Choose your username..." class="form-control" required>
-				</div>
-				<div class="form-group">
-					<label class="sr-only" for="password"></label> Password
-					<input type="password" name="password" id="password" placeholder="Password" class="form-control" required>
-				</div>
-				<button type="submit" class="btn" id="login">Sign Up</button>
-			</form>
-		</div>
-	</div>
+
+
 
 
 

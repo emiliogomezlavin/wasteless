@@ -12,6 +12,7 @@ import LeaderBoard  from './components/leader_board.js'
 import Following from './components/following.js'
 import Donations from './components/donations.js'
 import Profile from './components/profile.js'
+import EditProfile from './components/partials/profile_edit.js'
 
 
 import { createHashHistory } from 'history'
@@ -21,12 +22,14 @@ const NotFoundRoute = Router.NotFoundRoute
 const routes = (
   <Router history={appHistory}>
     <Route component={Main} >
-      <Route path='/' component={Dashboard}>    
+      <Route path='/' component={Dashboard}>
         <Route path='/past_donations' component={PastDonations} />
         <Route path='/upcoming_pickups' component={Pickups} />
         <Route path='/leaderboard' component={LeaderBoard} />
         <Route path='/following' component={Following} />
-        <Route path='/profile' component={Profile} />
+        <Route path='/profile' component={Profile}>
+          <Route path='/edit_profile' component={EditProfile} />
+        </Route>
       </Route>
       <Route path='/donations' component={Donations} />
       <Route path="*" component={Whoops404} />
