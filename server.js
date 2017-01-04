@@ -55,7 +55,7 @@ server.use('/', authRoutes)
 
 
 // Landing page route for now
-server.get('/home', restrict, function(req, res) {
+server.get('/home', function(req, res) {
   res.sendFile(path.join(__dirname + '/app/public/home.html'))
 })
 
