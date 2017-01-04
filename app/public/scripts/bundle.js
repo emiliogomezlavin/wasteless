@@ -94,11 +94,11 @@
 
 	var _componentsProfileJs2 = _interopRequireDefault(_componentsProfileJs);
 
-	var _componentsPartialsProfile_editJs = __webpack_require__(277);
+	var _componentsPartialsProfile_editJs = __webpack_require__(278);
 
 	var _componentsPartialsProfile_editJs2 = _interopRequireDefault(_componentsPartialsProfile_editJs);
 
-	var _history = __webpack_require__(278);
+	var _history = __webpack_require__(279);
 
 	var appHistory = (0, _reactRouter.useRouterHistory)(_history.createHashHistory)({ queryKey: false });
 	var NotFoundRoute = _reactRouter.Router.NotFoundRoute;
@@ -29336,7 +29336,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-		value: true
+	  value: true
 	});
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -29365,88 +29365,81 @@
 
 	var _partialsDonation_mapJs2 = _interopRequireDefault(_partialsDonation_mapJs);
 
+	var _partialsNew_donation_formJs = __webpack_require__(277);
+
+	var _partialsNew_donation_formJs2 = _interopRequireDefault(_partialsNew_donation_formJs);
+
 	var Donations = (function (_React$Component) {
-		_inherits(Donations, _React$Component);
+	  _inherits(Donations, _React$Component);
 
-		function Donations(props) {
-			_classCallCheck(this, Donations);
+	  function Donations(props) {
+	    _classCallCheck(this, Donations);
 
-			_get(Object.getPrototypeOf(Donations.prototype), 'constructor', this).call(this, props);
-			this.state = { donations: null };
-		}
+	    _get(Object.getPrototypeOf(Donations.prototype), 'constructor', this).call(this, props);
+	    this.state = { donations: null };
+	  }
 
-		_createClass(Donations, [{
-			key: 'componentDidMount',
-			value: function componentDidMount() {
-				var _this = this;
-				this.serverRequest = _axios2['default'].get('/api/donations').then((function (res) {
-					_this.setState({
-						donations: res.data
-					});
-				}).bind(this));
-			}
+	  _createClass(Donations, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this = this;
+	      var currentSession = undefined;
+	      this.serverRequest =
+	      // axios.get('/sign_in')
+	      //       .then(function(res){
+	      //         currentSession = res.data.passport.user;
+	      //       }.bind(this))
+	      //     .then(function(){
+	      _axios2['default'].get('/api/donations').then((function (res) {
+	        _this.setState({
+	          donations: res.data
+	        });
+	      }).bind(this));
+	      // })
+	    }
+	  }, {
+	    key: 'onDonationSubmit',
+	    value: function onDonationSubmit(donation) {
+	      console.log(donation);
 
-			// componentWillUnmount(){
-			// 	this.serverRequest.abort()
-			// }
+	      _axios2['default'].post('/api/donations/new', {
+	        data: donation
+	      }).then((function (res) {
+	        console.log(res);
+	      }).bind(this));
 
-		}, {
-			key: 'render',
-			value: function render() {
+	      // this.setState (donation);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
 
-				if (this.state.donations) {
-					return _react2['default'].createElement(
-						'div',
-						{ id: 'donations' },
-						_react2['default'].createElement(_partialsDonation_mapJs2['default'], null),
-						this.state.donations.data.map(function (donation, index) {
-							return _react2['default'].createElement(
-								'div',
-								{ key: index },
-								_react2['default'].createElement(
-									'li',
-									null,
-									_react2['default'].createElement(
-										'h1',
-										null,
-										' ',
-										donation.description
-									)
-								),
-								_react2['default'].createElement(
-									'li',
-									null,
-									_react2['default'].createElement(
-										'h1',
-										null,
-										' ',
-										donation.contents
-									)
-								),
-								_react2['default'].createElement(
-									'li',
-									null,
-									_react2['default'].createElement(
-										'h1',
-										null,
-										' ',
-										donation.donator_id
-									)
-								)
-							);
-						})
-					);
-				}
+	      if (this.state.donations) {
+	        return _react2['default'].createElement(
+	          'div',
+	          { id: 'donations' },
+	          _react2['default'].createElement(_partialsDonation_mapJs2['default'], null),
+	          this.state.donations.data.map(function (donation, index) {
 
-				return _react2['default'].createElement(
-					'div',
-					null,
-					'Loading... '
-				);
-			}
-		}]);
+	            return _react2['default'].createElement(
+	              'div',
+	              { key: index },
+	              _react2['default'].createElement(_partialsDonation_cardJs2['default'], { description: donation.description, contents: donation.contents, donator: donation.donator_id })
+	            );
+	          }),
+	          _react2['default'].createElement(_partialsNew_donation_formJs2['default'], { onDonationSubmit: this.handleSubmit })
+	        );
+	      }
 
-		return Donations;
+	      return _react2['default'].createElement(
+	        'div',
+	        null,
+	        'Loading... '
+	      );
+	    }
+	  }]);
+
+	  return Donations;
 	})(_react2['default'].Component);
 
 	exports['default'] = Donations;
@@ -29488,13 +29481,34 @@
 	  _createClass(DonationCard, [{
 	    key: "render",
 	    value: function render() {
+	      var description = this.props.description;
+	      var contents = this.props.contents;
+	      var donator = this.props.donator;
+
 	      return _react2["default"].createElement(
 	        "div",
 	        { id: "donation_card" },
 	        _react2["default"].createElement(
 	          "h1",
 	          null,
-	          "DonationCard!!!"
+	          "Donation from ",
+	          donator
+	        ),
+	        _react2["default"].createElement(
+	          "ul",
+	          { id: "donation-card-contents" },
+	          _react2["default"].createElement(
+	            "li",
+	            null,
+	            "Description: ",
+	            description
+	          ),
+	          _react2["default"].createElement(
+	            "li",
+	            null,
+	            "Contents: ",
+	            contents
+	          )
 	        )
 	      );
 	    }
@@ -29593,6 +29607,127 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var NewDonation = (function (_React$Component) {
+	  _inherits(NewDonation, _React$Component);
+
+	  function NewDonation(props) {
+	    _classCallCheck(this, NewDonation);
+
+	    _get(Object.getPrototypeOf(NewDonation.prototype), "constructor", this).call(this, props);
+
+	    this.state.description = "";
+	    this.state.contentS = "";
+	    // this.handleChange = this.handleChange.bind(this);
+	    // this.handleSubmit = this.handleSubmit.bind(this);
+	  }
+
+	  // getInitialState() {
+	  //   return {
+	  //     description: "",
+	  //     contents: ""
+	  //   }
+	  // }
+
+	  _createClass(NewDonation, [{
+	    key: "setValue",
+	    value: function setValue(field, event) {
+	      var donation = {};
+	      donation[field] = event.target.value;
+	      this.setState(donation);
+	    }
+	  }, {
+	    key: "handleSubmit",
+	    value: function handleSubmit(event) {
+	      event.preventDefault();
+
+	      var new_donation = {};
+	      var description = this.state.description;
+	      var contents = this.state.contents;
+
+	      if (description.length > 0) {
+	        this.state.description = "";
+	        new_donation.description = description;
+	      }
+
+	      if (contents.length > 0) {
+	        this.state.contents = "";
+	        new_donation.contents = contents;
+	      }
+
+	      this.props.onDonationSubmit(new_donation);
+	    }
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      var description = this.props.description;
+	      var contents = this.props.contents;
+	      var donator = this.props.donator;
+
+	      return _react2["default"].createElement(
+	        "div",
+	        { id: "donation_card" },
+	        _react2["default"].createElement(
+	          "p",
+	          null,
+	          " Please enter the information for the donation you want to share with the community "
+	        ),
+	        _react2["default"].createElement(
+	          "form",
+	          { onSubmit: this.handleSubmit },
+	          _react2["default"].createElement(
+	            "div",
+	            null,
+	            _react2["default"].createElement("input", { type: "text", value: this.state.description, onChange: this.setValue.bind(this, 'description'), placeholder: "Enter the description of the donation" })
+	          ),
+	          _react2["default"].createElement(
+	            "div",
+	            null,
+	            _react2["default"].createElement("textarea", { value: this.state.contents, onChange: this.setValue.bind(this, 'contents'), placeholder: "Enter the contents of the donation" })
+	          ),
+	          _react2["default"].createElement(
+	            "div",
+	            null,
+	            _react2["default"].createElement(
+	              "button",
+	              null,
+	              "Submit"
+	            )
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return NewDonation;
+	})(_react2["default"].Component);
+
+	exports["default"] = NewDonation;
+	module.exports = exports["default"];
+
+/***/ },
+/* 278 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
 	var EditProfile = (function (_React$Component) {
 	  _inherits(EditProfile, _React$Component);
 
@@ -29625,7 +29760,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 278 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29666,7 +29801,7 @@
 
 	exports.useBasename = _useBasename3['default'];
 
-	var _useBeforeUnload2 = __webpack_require__(279);
+	var _useBeforeUnload2 = __webpack_require__(280);
 
 	var _useBeforeUnload3 = _interopRequireDefault(_useBeforeUnload2);
 
@@ -29686,13 +29821,13 @@
 
 	// deprecated
 
-	var _enableBeforeUnload2 = __webpack_require__(280);
+	var _enableBeforeUnload2 = __webpack_require__(281);
 
 	var _enableBeforeUnload3 = _interopRequireDefault(_enableBeforeUnload2);
 
 	exports.enableBeforeUnload = _enableBeforeUnload3['default'];
 
-	var _enableQueries2 = __webpack_require__(281);
+	var _enableQueries2 = __webpack_require__(282);
 
 	var _enableQueries3 = _interopRequireDefault(_enableQueries2);
 
@@ -29701,7 +29836,7 @@
 	exports.createLocation = createLocation;
 
 /***/ },
-/* 279 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -29818,7 +29953,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 280 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29831,7 +29966,7 @@
 
 	var _deprecate2 = _interopRequireDefault(_deprecate);
 
-	var _useBeforeUnload = __webpack_require__(279);
+	var _useBeforeUnload = __webpack_require__(280);
 
 	var _useBeforeUnload2 = _interopRequireDefault(_useBeforeUnload);
 
@@ -29839,7 +29974,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 281 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
