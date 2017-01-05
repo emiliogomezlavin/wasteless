@@ -58,11 +58,11 @@ class Donations extends React.Component {
 		      			</div>
 		      		)
 		      	})}
-		      	<NewDonation onDonationSubmit={this.handleSubmit} />
+		      	
 	      	</div>
     	)
 	}
-	
+	// <NewDonation onDonationSubmit={this.handleSubmit} />
 
 	return (<div>Loading... </div>)
   }

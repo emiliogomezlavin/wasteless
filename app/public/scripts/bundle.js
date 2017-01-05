@@ -29426,10 +29426,10 @@
 	              { key: index },
 	              _react2['default'].createElement(_partialsDonation_cardJs2['default'], { description: donation.description, contents: donation.contents, donator: donation.donator_id })
 	            );
-	          }),
-	          _react2['default'].createElement(_partialsNew_donation_formJs2['default'], { onDonationSubmit: this.handleSubmit })
+	          })
 	        );
 	      }
+	      // <NewDonation onDonationSubmit={this.handleSubmit} />
 
 	      return _react2['default'].createElement(
 	        'div',
