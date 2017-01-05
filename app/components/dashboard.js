@@ -1,7 +1,6 @@
 import axios from 'axios'
 import React from 'react'
 import { Link } from 'react-router';
-import Profile from './profile.js'
 
 class Dashboard extends React.Component {
 

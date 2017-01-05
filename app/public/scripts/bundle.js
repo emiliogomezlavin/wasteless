@@ -94,9 +94,9 @@
 
 	var _componentsProfileJs2 = _interopRequireDefault(_componentsProfileJs);
 
-	var _componentsPartialsProfile_editJs = __webpack_require__(278);
+	var _componentsProfile_editJs = __webpack_require__(283);
 
-	var _componentsPartialsProfile_editJs2 = _interopRequireDefault(_componentsPartialsProfile_editJs);
+	var _componentsProfile_editJs2 = _interopRequireDefault(_componentsProfile_editJs);
 
 	var _history = __webpack_require__(279);
 
@@ -112,14 +112,14 @@
 	    _react2['default'].createElement(
 	      _reactRouter.Route,
 	      { path: '/', component: _componentsDashboardJs2['default'] },
-	      _react2['default'].createElement(_reactRouter.Route, { path: '/past_donations', component: _componentsPast_donationsJs2['default'] }),
-	      _react2['default'].createElement(_reactRouter.Route, { path: '/upcoming_pickups', component: _componentsPickupsJs2['default'] }),
-	      _react2['default'].createElement(_reactRouter.Route, { path: '/leaderboard', component: _componentsLeader_boardJs2['default'] }),
-	      _react2['default'].createElement(_reactRouter.Route, { path: '/following', component: _componentsFollowingJs2['default'] }),
+	      _react2['default'].createElement(_reactRouter.Route, { path: 'past_donations', component: _componentsPast_donationsJs2['default'] }),
+	      _react2['default'].createElement(_reactRouter.Route, { path: 'upcoming_pickups', component: _componentsPickupsJs2['default'] }),
+	      _react2['default'].createElement(_reactRouter.Route, { path: 'leaderboard', component: _componentsLeader_boardJs2['default'] }),
+	      _react2['default'].createElement(_reactRouter.Route, { path: 'following', component: _componentsFollowingJs2['default'] }),
 	      _react2['default'].createElement(
 	        _reactRouter.Route,
-	        { path: '/profile', component: _componentsProfileJs2['default'] },
-	        _react2['default'].createElement(_reactRouter.Route, { path: '/edit_profile', component: _componentsPartialsProfile_editJs2['default'] })
+	        { path: 'profile', component: _componentsProfileJs2['default'] },
+	        _react2['default'].createElement(_reactRouter.Route, { path: 'edit_profile', component: _componentsProfile_editJs2['default'] })
 	      )
 	    ),
 	    _react2['default'].createElement(_reactRouter.Route, { path: '/donations', component: _componentsDonationsJs2['default'] }),
@@ -27381,10 +27381,6 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _profileJs = __webpack_require__(269);
-
-	var _profileJs2 = _interopRequireDefault(_profileJs);
-
 	var Dashboard = (function (_React$Component) {
 	  _inherits(Dashboard, _React$Component);
 
@@ -29083,18 +29079,24 @@
 	                    'Phone Number: ',
 	                    user.phone_number
 	                  ),
-	                  _react2['default'].createElement(
-	                    'li',
-	                    null,
-	                    _react2['default'].createElement(
-	                      _reactRouter.Link,
-	                      { to: '/edit_profile' },
-	                      'Edit Profile'
-	                    )
-	                  )
+	                  _react2['default'].createElement('li', null)
 	                )
 	              );
-	            })
+	            }),
+	            _react2['default'].createElement(
+	              'div',
+	              null,
+	              _react2['default'].createElement(
+	                _reactRouter.Link,
+	                { to: '/profile/edit_profile' },
+	                'Edit Profile'
+	              )
+	            ),
+	            _react2['default'].createElement(
+	              'div',
+	              null,
+	              this.props.children
+	            )
 	          )
 	        );
 	      }
@@ -29705,61 +29707,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 278 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var EditProfile = (function (_React$Component) {
-	  _inherits(EditProfile, _React$Component);
-
-	  function EditProfile() {
-	    _classCallCheck(this, EditProfile);
-
-	    _get(Object.getPrototypeOf(EditProfile.prototype), "constructor", this).apply(this, arguments);
-	  }
-
-	  _createClass(EditProfile, [{
-	    key: "render",
-	    value: function render() {
-	      console.log(this.state.user);
-	      return _react2["default"].createElement(
-	        "div",
-	        { id: "edit-profile-form" },
-	        _react2["default"].createElement(
-	          "h3",
-	          null,
-	          "Edit Profile"
-	        )
-	      );
-	    }
-	  }]);
-
-	  return EditProfile;
-	})(_react2["default"].Component);
-
-	exports["default"] = EditProfile;
-	module.exports = exports["default"];
-
-/***/ },
+/* 278 */,
 /* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -29993,6 +29941,60 @@
 
 	exports['default'] = _deprecate2['default'](_useQueries2['default'], 'enableQueries is deprecated, use useQueries instead');
 	module.exports = exports['default'];
+
+/***/ },
+/* 283 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var EditProfile = (function (_React$Component) {
+	  _inherits(EditProfile, _React$Component);
+
+	  function EditProfile() {
+	    _classCallCheck(this, EditProfile);
+
+	    _get(Object.getPrototypeOf(EditProfile.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(EditProfile, [{
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "div",
+	        { id: "edit-profile-form" },
+	        _react2["default"].createElement(
+	          "h3",
+	          null,
+	          "Edit Profile"
+	        )
+	      );
+	    }
+	  }]);
+
+	  return EditProfile;
+	})(_react2["default"].Component);
+
+	exports["default"] = EditProfile;
+	module.exports = exports["default"];
 
 /***/ }
 /******/ ]);
