@@ -3,6 +3,7 @@ import axios from 'axios'
 import React from 'react'
 import DonationCard from './partials/donation_card.js'
 import DonationMap from './partials/donation_map.js'
+import NewDonation from './partials/new_donation_form.js'
 
 
 class Donations extends React.Component {
@@ -13,40 +14,55 @@ class Donations extends React.Component {
 
   componentDidMount(){
   	let _this = this;
+  	let currentSession;
   	this.serverRequest = 
-	  	axios.get('/api/donations')
-	  		.then(function(res){
-	  			_this.setState({
-	  				donations: res.data
-	  		})
-	  	}.bind(this));
+  		// axios.get('/sign_in')
+    //       .then(function(res){
+    //         currentSession = res.data.passport.user;
+    //       }.bind(this))
+    //     .then(function(){
+          axios.get('/api/donations')
+			  		.then(function(res){
+			  			_this.setState({
+			  				donations: res.data
+			  		})
+			  	}.bind(this))
+        // })
+
   }
 
-  // componentWillUnmount(){
-  // 	this.serverRequest.abort()
-  // }
+  onDonationSubmit(donation){
+  	console.log(donation)
+
+		axios.post('/api/donations/new', {
+		    data: donation
+		  })
+      .then(function(res){
+        console.log(res);
+        }.bind(this))
+		
+		// this.setState (donation);
+	}
 
   render() {
-  	console.log(this.state)
+  
     if (this.state.donations) {
-    	if(!this.props.loaded){
-			return <div> Loading... </div>	
-    	}
     	return (
 	      	<div id="donations">
-		      	<Map google={this.props.google} id="map"/>
+	      		<DonationMap />
 		      	{this.state.donations.data.map(function(donation, index){
+			
 		      		return (
 		      			<div key={index}>
-		      				<li><h1> {donation.description}</h1></li>
-		      				<li><h1> {donation.contents}</h1></li>
-		      				<li><h1> {donation.donator_id}</h1></li>
+		      				<DonationCard description={donation.description} contents={donation.contents} donator={donation.donator_id} />
 		      			</div>
 		      		)
 		      	})}
+		      	<NewDonation onDonationSubmit={this.handleSubmit} />
 	      	</div>
     	)
 	}
+	
 
 	return (<div>Loading... </div>)
   }
