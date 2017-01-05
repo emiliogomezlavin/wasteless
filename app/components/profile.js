@@ -46,11 +46,13 @@ class Profile extends React.Component {
                       <li>City: {user.city}</li>
                       <li>State: {user.state}</li>
                       <li>Phone Number: {user.phone_number}</li>
-                      <li><Link to="/edit_profile">Edit Profile</Link></li>
+                      <li></li>
                     </ul>
                   </div>
                 )
               })}
+              <div><Link to="/profile/edit_profile">Edit Profile</Link></div>
+              <div>{this.props.children}</div>
             </div>
           </section>
         )

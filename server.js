@@ -56,8 +56,6 @@ server.use('/', authRoutes)
 
 // Landing page route for now
 server.get('/home', restrict, function(req, res) {
-  // req.cookies['connect.sid'] = (req.session.passport || null);
-  // console.log(req.cookies)
   res.sendFile(path.join(__dirname + '/app/public/home.html'))
 })
 
