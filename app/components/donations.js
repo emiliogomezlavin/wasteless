@@ -1,10 +1,79 @@
 
 import axios from 'axios'
 import React from 'react'
+import { Link } from 'react-router';
 import DonationCard from './partials/donation_card.js'
 import DonationMap from './partials/donation_map.js'
-import NewDonation from './partials/new_donation_form.js'
 
+
+
+// class NewDonation extends React.Component {
+//   constructor(props) {
+//     super(props);
+
+//     this.state = {description: '', contents: ''}
+//     // this.handleChange = this.handleChange.bind(this);
+//     this.handleSubmit = this.handleSubmit.bind(this);
+//   }
+
+//   // getInitialState() {
+//   //   return {
+//   //     description: "",
+//   //     contents: ""
+//   //   }
+//   // }
+
+//   setValue(field, event) {
+//     var donation = {};
+//     donation[field] = event.target.value;
+//     this.setState(donation);
+//   }
+
+//   handleSubmit(event) {
+//     event.preventDefault();
+    
+//     var newDonation = {}
+//     var description = this.state.description;
+//     var contents = this.state.contents;
+
+//     if (description.length > 0 ) {
+//       this.state.description = "";
+//       newDonation.description = description;
+//     }
+
+//     if (contents.length > 0) {
+//       this.state.contents = "";
+//       newDonation.contents = contents;
+//     }
+    
+//     this.props.onDonationSubmit(newDonation);
+//   }
+
+//   render() {
+//     var description = this.props.description;
+//     var contents = this.props.contents;
+//     var donator = this.props.donator;
+
+//     return (
+//       <div id="donation_card">
+//         <p> Please enter the information for the donation you want to share with the community </p>
+//         <form onSubmit={this.handleSubmit}>
+//           <div>
+//             <input type="text" value={this.state.description} onChange={this.setValue.bind(this, 'description')} placeholder="Enter the description of the donation"/>
+//           </div>
+//           <div>
+//             <textarea value={this.state.contents} onChange={this.setValue.bind(this, 'contents')} placeholder="Enter the contents of the donation"></textarea>
+//           </div>
+//           <div>
+//             <button>Submit</button>
+//           </div>
+//         </form>
+//       </div>
+//     )
+//   }
+// }
+
+var donationArray = [];
 
 const DonationList = ({donations}) => {
   // Map through the todos
@@ -21,7 +90,15 @@ const DonationList = ({donations}) => {
 class Donations extends React.Component {
   constructor(props){
   	super(props);
-  	this.state = {donations: null};
+  	this.state = {donations: donationArray, description: '', contents: ''};
+    // this.handleChange = this.handleChange.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  setValue(field, event) {
+    var donation = {};
+    donation[field] = event.target.value;
+    this.setState(donation);
   }
 
   componentDidMount(){
@@ -39,42 +116,72 @@ class Donations extends React.Component {
 			  			_this.setState({
 			  				donations: res.data.data
 			  		})
+			  		donationArray = this.state.donations;
+			  		console.log("after hitting backend", donationArray)
 			  	}.bind(this))
         // })
 
   }
 
-  handleDonationSubmit(donation){
-  	console.log("Donation:" , donation)
-  	console.log(this.state);
 
-  	let newDonation;
+  handleDonationSubmit(event){
+
+  
+  	event.preventDefault();
+
+  	console.log(this.state.description, this.state.contents)
+
+    var newDonation = {}
+    var description = this.state.description;
+    var contents = this.state.contents;
+
+    if (description.length > 0 ) {
+      this.state.description = "";
+      newDonation.description = description;
+    }
+
+    if (contents.length > 0) {
+      this.state.contents = "";
+      newDonation.contents = contents;
+    }
 
 		axios.post('/api/donations/new', {
-		    description: donation.description,
-		    contents: donation.contents
+		    description: newDonation.description,
+		    contents: newDonation.contents
 		  })
       .then(function(res){
-      		newDonation = res.data;
-        	// this.state.donations.push(res.data)
-        	// this.setState({donations: this.state.donations})
-        	// this.forceUpdate()
+      		console.log("after it's saved in the backend", res.data);	
+        	donationArray.push(res.data.data[0])
+        	console.log(donationArray);
+        	this.setState({donations: donationArray})
         }.bind(this))
       .catch(function(err){
       	console.log(err);
       	}.bind(this))
-		
-		console.log("after it's saved in the backend", newDonation)
 	}
 
   render() {
-  
+
+  	var description = this.props.description;
+    var contents = this.props.contents;
+    var donator = this.props.donator;
+
     if (this.state.donations) {
     	return (
 	      	<div id="donations">
 	      		<DonationMap />
 		      	<DonationList donations={this.state.donations} />
-						<NewDonation onDonationSubmit={this.handleDonationSubmit} />	      	
+		      	<form onSubmit={this.handleDonationSubmit}>
+		          <div>
+		            <input type="text" value={this.state.description} onChange={this.setValue.bind(this, 'description')} placeholder="Enter the description of the donation"/>
+		          </div>
+		          <div>
+		            <textarea value={this.state.contents} onChange={this.setValue.bind(this, 'contents')} placeholder="Enter the contents of the donation"></textarea>
+		          </div>
+		          <div>
+		            <button>Submit</button>
+		          </div>
+		        </form>      	
 	      	</div>
     	)
 	}
@@ -84,4 +191,5 @@ class Donations extends React.Component {
   }
 }
 
+// <NewDonation onDonationSubmit={this.handleDonationSubmit} />	
 export default Donations
