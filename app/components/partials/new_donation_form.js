@@ -4,10 +4,9 @@ class NewDonation extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state.description = "";
-    this.state.contentS = "";
+    this.state = {description: '', contents: ''}
     // this.handleChange = this.handleChange.bind(this);
-    // this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   // getInitialState() {
@@ -26,21 +25,21 @@ class NewDonation extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
 
-    var new_donation = {}
+    var newDonation = {}
     var description = this.state.description;
     var contents = this.state.contents;
 
     if (description.length > 0 ) {
       this.state.description = "";
-      new_donation.description = description;
+      newDonation.description = description;
     }
 
     if (contents.length > 0) {
       this.state.contents = "";
-      new_donation.contents = contents;
+      newDonation.contents = contents;
     }
     
-    this.props.onDonationSubmit(new_donation);
+    this.props.onDonationSubmit(newDonation);
   }
 
   render() {

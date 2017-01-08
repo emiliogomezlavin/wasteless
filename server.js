@@ -14,6 +14,7 @@ const express = require('express'),
 // server configs
 server.use(express.static('./app/public'));
 server.use(cookieParser());
+server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
 require('dotenv').config();
 

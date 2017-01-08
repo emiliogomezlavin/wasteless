@@ -6,6 +6,18 @@ import DonationMap from './partials/donation_map.js'
 import NewDonation from './partials/new_donation_form.js'
 
 
+const DonationList = ({donations}) => {
+  // Map through the todos
+  const donationNode = donations.map((donation, index) => {
+    return (
+    	<div key={index}>
+    		<DonationCard description={donation.description} contents={donation.contents} donator={donation.donator_id} />
+    	</div>)
+  });
+  return (<div className="list-group" style={{marginTop:'30px'}}>{donationNode}</div>);
+}
+
+
 class Donations extends React.Component {
   constructor(props){
   	super(props);
@@ -23,25 +35,36 @@ class Donations extends React.Component {
     //     .then(function(){
           axios.get('/api/donations')
 			  		.then(function(res){
+
 			  			_this.setState({
-			  				donations: res.data
+			  				donations: res.data.data
 			  		})
 			  	}.bind(this))
         // })
 
   }
 
-  onDonationSubmit(donation){
-  	console.log(donation)
+  handleDonationSubmit(donation){
+  	console.log("Donation:" , donation)
+  	console.log(this.state);
+
+  	let newDonation;
 
 		axios.post('/api/donations/new', {
-		    data: donation
+		    description: donation.description,
+		    contents: donation.contents
 		  })
       .then(function(res){
-        console.log(res);
+      		newDonation = res.data;
+        	// this.state.donations.push(res.data)
+        	// this.setState({donations: this.state.donations})
+        	// this.forceUpdate()
         }.bind(this))
+      .catch(function(err){
+      	console.log(err);
+      	}.bind(this))
 		
-		// this.setState (donation);
+		console.log("after it's saved in the backend", newDonation)
 	}
 
   render() {
@@ -50,19 +73,12 @@ class Donations extends React.Component {
     	return (
 	      	<div id="donations">
 	      		<DonationMap />
-		      	{this.state.donations.data.map(function(donation, index){
-			
-		      		return (
-		      			<div key={index}>
-		      				<DonationCard description={donation.description} contents={donation.contents} donator={donation.donator_id} />
-		      			</div>
-		      		)
-		      	})}
-		      	
+		      	<DonationList donations={this.state.donations} />
+						<NewDonation onDonationSubmit={this.handleDonationSubmit} />	      	
 	      	</div>
     	)
 	}
-	// <NewDonation onDonationSubmit={this.handleSubmit} />
+	
 
 	return (<div>Loading... </div>)
   }
