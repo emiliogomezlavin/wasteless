@@ -29347,7 +29347,7 @@
 	    _classCallCheck(this, Profile);
 
 	    _get(Object.getPrototypeOf(Profile.prototype), 'constructor', this).call(this, props);
-	    this.state = { users: null };
+	    this.state = { user: null };
 	  }
 
 	  _createClass(Profile, [{
@@ -29504,6 +29504,7 @@
 	  _createClass(EditProfile, [{
 	    key: "render",
 	    value: function render() {
+	      console.log(this.state);
 	      return _react2["default"].createElement(
 	        "div",
 	        { id: "edit-profile-form" },
@@ -29511,6 +29512,12 @@
 	          "h3",
 	          null,
 	          "Edit Profile"
+	        ),
+	        _react2["default"].createElement(
+	          "p",
+	          null,
+	          "Something ",
+	          user.username
 	        )
 	      );
 	    }

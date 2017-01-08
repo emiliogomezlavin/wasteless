@@ -5,7 +5,7 @@ import { Link } from 'react-router';
 class Profile extends React.Component {
   constructor(props){
       super(props);
-      this.state = {users: null};
+      this.state = {user: null};
     }
 
     componentDidMount(){
@@ -26,7 +26,6 @@ class Profile extends React.Component {
             })
           }.bind(this));
         })
-
     }
 
     render() {
