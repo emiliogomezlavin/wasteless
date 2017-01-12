@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React from 'react'
 import { Link } from 'react-router';
+import Cookie from 'react-cookie'
 
 class Profile extends React.Component {
   constructor(props){
@@ -15,6 +16,7 @@ class Profile extends React.Component {
       this.serverRequest =
         axios.get('/sign_in')
           .then(function(res){
+            Cookie.load(res.data.passport.user)
             currentSession = res.data.passport.user;
           }.bind(this))
         .then(function(){
@@ -29,6 +31,7 @@ class Profile extends React.Component {
     }
 
     render() {
+      console.log(Cookie)
       if (this.state.user) {
         return (
           <section id="user">

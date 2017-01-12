@@ -90,15 +90,15 @@
 
 	var _componentsDonationsJs2 = _interopRequireDefault(_componentsDonationsJs);
 
-	var _componentsProfileJs = __webpack_require__(274);
+	var _componentsProfileJs = __webpack_require__(276);
 
 	var _componentsProfileJs2 = _interopRequireDefault(_componentsProfileJs);
 
-	var _componentsProfile_editJs = __webpack_require__(275);
+	var _componentsProfile_editJs = __webpack_require__(277);
 
 	var _componentsProfile_editJs2 = _interopRequireDefault(_componentsProfile_editJs);
 
-	var _history = __webpack_require__(276);
+	var _history = __webpack_require__(278);
 
 	var appHistory = (0, _reactRouter.useRouterHistory)(_history.createHashHistory)({ queryKey: false });
 	var NotFoundRoute = _reactRouter.Router.NotFoundRoute;
@@ -29203,11 +29203,11 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _partialsDonation_cardJs = __webpack_require__(280);
+	var _partialsDonation_cardJs = __webpack_require__(274);
 
 	var _partialsDonation_cardJs2 = _interopRequireDefault(_partialsDonation_cardJs);
 
-	var _partialsDonation_mapJs = __webpack_require__(281);
+	var _partialsDonation_mapJs = __webpack_require__(275);
 
 	var _partialsDonation_mapJs2 = _interopRequireDefault(_partialsDonation_mapJs);
 
@@ -29423,6 +29423,144 @@
 /* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var DonationCard = (function (_React$Component) {
+	  _inherits(DonationCard, _React$Component);
+
+	  function DonationCard() {
+	    _classCallCheck(this, DonationCard);
+
+	    _get(Object.getPrototypeOf(DonationCard.prototype), "constructor", this).apply(this, arguments);
+	  }
+
+	  _createClass(DonationCard, [{
+	    key: "render",
+	    value: function render() {
+	      var description = this.props.description;
+	      var contents = this.props.contents;
+	      var donator = this.props.donator;
+
+	      return _react2["default"].createElement(
+	        "div",
+	        { id: "donation_card" },
+	        _react2["default"].createElement(
+	          "h1",
+	          null,
+	          "Donation from ",
+	          donator
+	        ),
+	        _react2["default"].createElement(
+	          "ul",
+	          { id: "donation-card-contents" },
+	          _react2["default"].createElement(
+	            "li",
+	            null,
+	            "Description: ",
+	            description
+	          ),
+	          _react2["default"].createElement(
+	            "li",
+	            null,
+	            "Contents: ",
+	            contents
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return DonationCard;
+	})(_react2["default"].Component);
+
+	exports["default"] = DonationCard;
+	module.exports = exports["default"];
+
+/***/ },
+/* 275 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var SAN_FRANCISCO = {
+	  lat: 37.7749,
+	  lng: -122.4194
+	};
+
+	var DonationMap = (function (_React$Component) {
+	  _inherits(DonationMap, _React$Component);
+
+	  function DonationMap() {
+	    _classCallCheck(this, DonationMap);
+
+	    _get(Object.getPrototypeOf(DonationMap.prototype), "constructor", this).call(this);
+	  }
+
+	  _createClass(DonationMap, [{
+	    key: "componentDidMount",
+	    value: function componentDidMount() {
+	      this.map = new google.maps.Map(this.refs.map, {
+	        center: SAN_FRANCISCO,
+	        zoom: 12
+	      });
+	    }
+	  }, {
+	    key: "render",
+	    value: function render() {
+	      return _react2["default"].createElement(
+	        "div",
+	        null,
+	        _react2["default"].createElement("div", { ref: "map", className: "map" })
+	      );
+	    }
+	  }]);
+
+	  return DonationMap;
+	})(_react2["default"].Component);
+
+	exports["default"] = DonationMap;
+	module.exports = exports["default"];
+
+/***/ },
+/* 276 */
+/***/ function(module, exports, __webpack_require__) {
+
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
@@ -29449,6 +29587,10 @@
 
 	var _reactRouter = __webpack_require__(178);
 
+	var _reactCookie = __webpack_require__(282);
+
+	var _reactCookie2 = _interopRequireDefault(_reactCookie);
+
 	var Profile = (function (_React$Component) {
 	  _inherits(Profile, _React$Component);
 
@@ -29466,6 +29608,7 @@
 	      var currentSession = undefined;
 
 	      this.serverRequest = _axios2['default'].get('/sign_in').then((function (res) {
+	        _reactCookie2['default'].load(res.data.passport.user);
 	        currentSession = res.data.passport.user;
 	      }).bind(this)).then(function () {
 	        _axios2['default'].get('/api/users/' + currentSession).then((function (res) {
@@ -29479,6 +29622,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
+	      console.log(_reactCookie2['default']);
 	      if (this.state.user) {
 	        return _react2['default'].createElement(
 	          'section',
@@ -29578,7 +29722,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 275 */
+/* 277 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -29639,7 +29783,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 276 */
+/* 278 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29680,7 +29824,7 @@
 
 	exports.useBasename = _useBasename3['default'];
 
-	var _useBeforeUnload2 = __webpack_require__(277);
+	var _useBeforeUnload2 = __webpack_require__(279);
 
 	var _useBeforeUnload3 = _interopRequireDefault(_useBeforeUnload2);
 
@@ -29700,13 +29844,13 @@
 
 	// deprecated
 
-	var _enableBeforeUnload2 = __webpack_require__(278);
+	var _enableBeforeUnload2 = __webpack_require__(280);
 
 	var _enableBeforeUnload3 = _interopRequireDefault(_enableBeforeUnload2);
 
 	exports.enableBeforeUnload = _enableBeforeUnload3['default'];
 
-	var _enableQueries2 = __webpack_require__(279);
+	var _enableQueries2 = __webpack_require__(281);
 
 	var _enableQueries3 = _interopRequireDefault(_enableQueries2);
 
@@ -29715,7 +29859,7 @@
 	exports.createLocation = createLocation;
 
 /***/ },
-/* 277 */
+/* 279 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -29832,7 +29976,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 278 */
+/* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29845,7 +29989,7 @@
 
 	var _deprecate2 = _interopRequireDefault(_deprecate);
 
-	var _useBeforeUnload = __webpack_require__(277);
+	var _useBeforeUnload = __webpack_require__(279);
 
 	var _useBeforeUnload2 = _interopRequireDefault(_useBeforeUnload);
 
@@ -29853,7 +29997,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 279 */
+/* 281 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -29874,15 +30018,20 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 280 */
+/* 282 */
 /***/ function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 	'use strict';
+=======
+	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
+>>>>>>> 3d152d2a9f25c1762e7fde5b1b6788ddf76ab970
 
 	Object.defineProperty(exports, '__esModule', {
 	  value: true
 	});
 
+<<<<<<< HEAD
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -29892,21 +30041,45 @@
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+=======
+	var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-	var _react = __webpack_require__(1);
+	exports.load = load;
+	exports.select = select;
+	exports.save = save;
+	exports.remove = remove;
+	exports.setRawCookie = setRawCookie;
+	exports.plugToRequest = plugToRequest;
 
-	var _react2 = _interopRequireDefault(_react);
+	var _cookie = __webpack_require__(283);
 
+	var _cookie2 = _interopRequireDefault(_cookie);
+
+	var _objectAssign = __webpack_require__(4);
+>>>>>>> 3d152d2a9f25c1762e7fde5b1b6788ddf76ab970
+
+	var _objectAssign2 = _interopRequireDefault(_objectAssign);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+<<<<<<< HEAD
 	var _axios = __webpack_require__(244);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
 	var DonationCard = (function (_React$Component) {
 	  _inherits(DonationCard, _React$Component);
+=======
+	var IS_NODE = typeof document === 'undefined' || process && process.env && process.env.NODE_ENV === 'test';
+	var _rawCookie = {};
+	var _res = undefined;
+>>>>>>> 3d152d2a9f25c1762e7fde5b1b6788ddf76ab970
 
-	  function DonationCard() {
-	    _classCallCheck(this, DonationCard);
+	function _isResWritable() {
+	  return _res && !_res.headersSent;
+	}
 
+<<<<<<< HEAD
 	    _get(Object.getPrototypeOf(DonationCard.prototype), 'constructor', this).apply(this, arguments);
 	  }
 
@@ -29973,77 +30146,336 @@
 	          'Request Donation'
 	        )
 	      );
-	    }
-	  }]);
+=======
+	function load(name, doNotParse) {
+	  var cookies = IS_NODE ? _rawCookie : _cookie2.default.parse(document.cookie);
+	  var cookieVal = cookies && cookies[name];
 
+	  if (typeof doNotParse === 'undefined') {
+	    doNotParse = !cookieVal || cookieVal[0] !== '{' && cookieVal[0] !== '[';
+	  }
+
+	  if (!doNotParse) {
+	    try {
+	      cookieVal = JSON.parse(cookieVal);
+	    } catch (e) {
+	      // Not serialized object
+	    }
+	  }
+
+	  return cookieVal;
+	}
+
+	function select(regex) {
+	  var cookies = IS_NODE ? _rawCookie : _cookie2.default.parse(document.cookie);
+
+	  if (!cookies) {
+	    return {};
+	  }
+
+	  if (!regex) {
+	    return cookies;
+	  }
+
+	  return Object.keys(cookies).reduce(function (accumulator, name) {
+	    if (!regex.test(name)) {
+	      return accumulator;
+>>>>>>> 3d152d2a9f25c1762e7fde5b1b6788ddf76ab970
+	    }
+
+<<<<<<< HEAD
 	  return DonationCard;
 	})(_react2['default'].Component);
 
 	exports['default'] = DonationCard;
 	module.exports = exports['default'];
+=======
+	    var newCookie = {};
+	    newCookie[name] = cookies[name];
+	    return (0, _objectAssign2.default)({}, accumulator, newCookie);
+	  }, {});
+	}
 
-/***/ },
-/* 281 */
-/***/ function(module, exports, __webpack_require__) {
+	function save(name, val, opt) {
+	  _rawCookie[name] = val;
+>>>>>>> 3d152d2a9f25c1762e7fde5b1b6788ddf76ab970
 
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
-
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var _react = __webpack_require__(1);
-
-	var _react2 = _interopRequireDefault(_react);
-
-	var SAN_FRANCISCO = {
-	  lat: 37.7749,
-	  lng: -122.4194
-	};
-
-	var DonationMap = (function (_React$Component) {
-	  _inherits(DonationMap, _React$Component);
-
-	  function DonationMap() {
-	    _classCallCheck(this, DonationMap);
-
-	    _get(Object.getPrototypeOf(DonationMap.prototype), "constructor", this).call(this);
+	  // allow you to work with cookies as objects.
+	  if ((typeof val === 'undefined' ? 'undefined' : _typeof(val)) === 'object') {
+	    _rawCookie[name] = JSON.stringify(val);
 	  }
 
-	  _createClass(DonationMap, [{
-	    key: "componentDidMount",
-	    value: function componentDidMount() {
-	      this.map = new google.maps.Map(this.refs.map, {
-	        center: SAN_FRANCISCO,
-	        zoom: 12
-	      });
-	    }
-	  }, {
-	    key: "render",
-	    value: function render() {
-	      return _react2["default"].createElement(
-	        "div",
-	        null,
-	        _react2["default"].createElement("div", { ref: "map", className: "map" })
-	      );
-	    }
-	  }]);
+	  // Cookies only work in the browser
+	  if (!IS_NODE) {
+	    document.cookie = _cookie2.default.serialize(name, _rawCookie[name], opt);
+	  }
 
-	  return DonationMap;
-	})(_react2["default"].Component);
+	  if (_isResWritable() && _res.cookie) {
+	    _res.cookie(name, val, opt);
+	  }
+	}
 
-	exports["default"] = DonationMap;
-	module.exports = exports["default"];
+	function remove(name, opt) {
+	  delete _rawCookie[name];
+
+	  if (typeof opt === 'undefined') {
+	    opt = {};
+	  } else if (typeof opt === 'string') {
+	    // Will be deprecated in future versions
+	    opt = { path: opt };
+	  } else {
+	    // Prevent mutation of opt below
+	    opt = (0, _objectAssign2.default)({}, opt);
+	  }
+
+	  if (typeof document !== 'undefined') {
+	    opt.expires = new Date(1970, 1, 1, 0, 0, 1);
+	    opt.maxAge = 0;
+	    document.cookie = _cookie2.default.serialize(name, '', opt);
+	  }
+
+	  if (_isResWritable() && _res.clearCookie) {
+	    _res.clearCookie(name, opt);
+	  }
+	}
+
+	function setRawCookie(rawCookie) {
+	  if (rawCookie) {
+	    _rawCookie = _cookie2.default.parse(rawCookie);
+	  } else {
+	    _rawCookie = {};
+	  }
+	}
+
+	function plugToRequest(req, res) {
+	  if (req.cookie) {
+	    _rawCookie = req.cookie;
+	  } else if (req.cookies) {
+	    _rawCookie = req.cookies;
+	  } else if (req.headers && req.headers.cookie) {
+	    setRawCookie(req.headers.cookie);
+	  } else {
+	    _rawCookie = {};
+	  }
+
+	  _res = res;
+
+	  return function unplug() {
+	    _res = null;
+	    _rawCookie = {};
+	  };
+	}
+
+	exports.default = {
+	  setRawCookie: setRawCookie,
+	  load: load,
+	  select: select,
+	  save: save,
+	  remove: remove,
+	  plugToRequest: plugToRequest
+	};
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 283 */
+/***/ function(module, exports) {
+
+	/*!
+	 * cookie
+	 * Copyright(c) 2012-2014 Roman Shtylman
+	 * Copyright(c) 2015 Douglas Christopher Wilson
+	 * MIT Licensed
+	 */
+
+	'use strict';
+
+	/**
+	 * Module exports.
+	 * @public
+	 */
+
+	exports.parse = parse;
+	exports.serialize = serialize;
+
+	/**
+	 * Module variables.
+	 * @private
+	 */
+
+	var decode = decodeURIComponent;
+	var encode = encodeURIComponent;
+	var pairSplitRegExp = /; */;
+
+	/**
+	 * RegExp to match field-content in RFC 7230 sec 3.2
+	 *
+	 * field-content = field-vchar [ 1*( SP / HTAB ) field-vchar ]
+	 * field-vchar   = VCHAR / obs-text
+	 * obs-text      = %x80-FF
+	 */
+
+	var fieldContentRegExp = /^[\u0009\u0020-\u007e\u0080-\u00ff]+$/;
+
+	/**
+	 * Parse a cookie header.
+	 *
+	 * Parse the given cookie header string into an object
+	 * The object has the various cookies as keys(names) => values
+	 *
+	 * @param {string} str
+	 * @param {object} [options]
+	 * @return {object}
+	 * @public
+	 */
+
+	function parse(str, options) {
+	  if (typeof str !== 'string') {
+	    throw new TypeError('argument str must be a string');
+	  }
+
+	  var obj = {}
+	  var opt = options || {};
+	  var pairs = str.split(pairSplitRegExp);
+	  var dec = opt.decode || decode;
+
+	  for (var i = 0; i < pairs.length; i++) {
+	    var pair = pairs[i];
+	    var eq_idx = pair.indexOf('=');
+
+	    // skip things that don't look like key=value
+	    if (eq_idx < 0) {
+	      continue;
+	    }
+
+	    var key = pair.substr(0, eq_idx).trim()
+	    var val = pair.substr(++eq_idx, pair.length).trim();
+
+	    // quoted values
+	    if ('"' == val[0]) {
+	      val = val.slice(1, -1);
+	    }
+
+	    // only assign once
+	    if (undefined == obj[key]) {
+	      obj[key] = tryDecode(val, dec);
+	    }
+	  }
+
+	  return obj;
+	}
+
+	/**
+	 * Serialize data into a cookie header.
+	 *
+	 * Serialize the a name value pair into a cookie string suitable for
+	 * http headers. An optional options object specified cookie parameters.
+	 *
+	 * serialize('foo', 'bar', { httpOnly: true })
+	 *   => "foo=bar; httpOnly"
+	 *
+	 * @param {string} name
+	 * @param {string} val
+	 * @param {object} [options]
+	 * @return {string}
+	 * @public
+	 */
+
+	function serialize(name, val, options) {
+	  var opt = options || {};
+	  var enc = opt.encode || encode;
+
+	  if (typeof enc !== 'function') {
+	    throw new TypeError('option encode is invalid');
+	  }
+
+	  if (!fieldContentRegExp.test(name)) {
+	    throw new TypeError('argument name is invalid');
+	  }
+
+	  var value = enc(val);
+
+	  if (value && !fieldContentRegExp.test(value)) {
+	    throw new TypeError('argument val is invalid');
+	  }
+
+	  var str = name + '=' + value;
+
+	  if (null != opt.maxAge) {
+	    var maxAge = opt.maxAge - 0;
+	    if (isNaN(maxAge)) throw new Error('maxAge should be a Number');
+	    str += '; Max-Age=' + Math.floor(maxAge);
+	  }
+
+	  if (opt.domain) {
+	    if (!fieldContentRegExp.test(opt.domain)) {
+	      throw new TypeError('option domain is invalid');
+	    }
+
+	    str += '; Domain=' + opt.domain;
+	  }
+
+	  if (opt.path) {
+	    if (!fieldContentRegExp.test(opt.path)) {
+	      throw new TypeError('option path is invalid');
+	    }
+
+	    str += '; Path=' + opt.path;
+	  }
+
+	  if (opt.expires) {
+	    if (typeof opt.expires.toUTCString !== 'function') {
+	      throw new TypeError('option expires is invalid');
+	    }
+
+	    str += '; Expires=' + opt.expires.toUTCString();
+	  }
+
+	  if (opt.httpOnly) {
+	    str += '; HttpOnly';
+	  }
+
+	  if (opt.secure) {
+	    str += '; Secure';
+	  }
+
+	  if (opt.sameSite) {
+	    var sameSite = typeof opt.sameSite === 'string'
+	      ? opt.sameSite.toLowerCase() : opt.sameSite;
+
+	    switch (sameSite) {
+	      case true:
+	        str += '; SameSite=Strict';
+	        break;
+	      case 'lax':
+	        str += '; SameSite=Lax';
+	        break;
+	      case 'strict':
+	        str += '; SameSite=Strict';
+	        break;
+	      default:
+	        throw new TypeError('option sameSite is invalid');
+	    }
+	  }
+
+	  return str;
+	}
+
+	/**
+	 * Try decoding a string using a decoding function.
+	 *
+	 * @param {string} str
+	 * @param {function} decode
+	 * @private
+	 */
+
+	function tryDecode(str, decode) {
+	  try {
+	    return decode(str);
+	  } catch (e) {
+	    return str;
+	  }
+	}
+
 
 /***/ }
 /******/ ]);
