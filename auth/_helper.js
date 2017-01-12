@@ -6,8 +6,6 @@ function comparePass (userPassword, databasePassword){
 };
 
 function createUser (req){
-  console.log(req.body);
-  console.log(req.session.id)
   const salt = bcrypt.genSaltSync();
   const hash = bcrypt.hashSync(req.body.password, salt);
   return knex('users')
@@ -25,7 +23,6 @@ function createUser (req){
 
 
 function loginRedirect (req, res, next){
-  console.log(req.user);
   if(req.user){
     return res.status(401).json(
       {status: "You are already logged in!"});

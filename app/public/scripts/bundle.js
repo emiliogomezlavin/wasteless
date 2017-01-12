@@ -29278,6 +29278,7 @@
 	// }
 
 	var donationArray = [];
+	var currentSession = undefined;
 
 	var DonationList = function DonationList(_ref) {
 	  var donations = _ref.donations;
@@ -29287,7 +29288,7 @@
 	    return _react2['default'].createElement(
 	      'div',
 	      { key: index },
-	      _react2['default'].createElement(_partialsDonation_cardJs2['default'], { description: donation.description, contents: donation.contents, donator: donation.donator_id })
+	      _react2['default'].createElement(_partialsDonation_cardJs2['default'], { description: donation.description, contents: donation.contents, donator: donation.donator_id, id: donation.id })
 	    );
 	  });
 	  return _react2['default'].createElement(
@@ -29304,7 +29305,7 @@
 	    _classCallCheck(this, Donations);
 
 	    _get(Object.getPrototypeOf(Donations.prototype), 'constructor', this).call(this, props);
-	    this.state = { donations: donationArray, description: '', contents: '' };
+	    this.state = { donations: donationArray, description: '', contents: '', currentSession: '' };
 	    // this.handleChange = this.handleChange.bind(this);
 	    // this.handleSubmit = this.handleSubmit.bind(this);
 	  }
@@ -29322,30 +29323,21 @@
 	    key: 'componentDidMount',
 	    value: function componentDidMount() {
 	      var _this = this;
-	      var currentSession = undefined;
-	      this.serverRequest =
-	      // axios.get('/sign_in')
-	      //       .then(function(res){
-	      //         currentSession = res.data.passport.user;
-	      //       }.bind(this))
-	      //     .then(function(){
-	      _axios2['default'].get('/api/donations').then((function (res) {
-
-	        _this.setState({
-	          donations: res.data.data
-	        });
-	        donationArray = this.state.donations;
-	        console.log("after hitting backend", donationArray);
-	      }).bind(this));
-	      // })
+	      this.serverRequest = _axios2['default'].get('/sign_in').then((function (res) {
+	        this.state.currentSession = res.data.passport.user;
+	      }).bind(this)).then(function () {
+	        _axios2['default'].get('/api/donations').then((function (res) {
+	          _this.setState({
+	            donations: res.data.data
+	          });
+	          donationArray = this.state.donations;
+	        }).bind(this));
+	      });
 	    }
 	  }, {
 	    key: 'handleDonationSubmit',
 	    value: function handleDonationSubmit(event) {
-
 	      event.preventDefault();
-
-	      console.log(this.state.description, this.state.contents);
 
 	      var newDonation = {};
 	      var description = this.state.description;
@@ -29885,25 +29877,29 @@
 /* 280 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
+	Object.defineProperty(exports, '__esModule', {
 	  value: true
 	});
 
-	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
-	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _axios = __webpack_require__(244);
+
+	var _axios2 = _interopRequireDefault(_axios);
 
 	var DonationCard = (function (_React$Component) {
 	  _inherits(DonationCard, _React$Component);
@@ -29911,50 +29907,80 @@
 	  function DonationCard() {
 	    _classCallCheck(this, DonationCard);
 
-	    _get(Object.getPrototypeOf(DonationCard.prototype), "constructor", this).apply(this, arguments);
+	    _get(Object.getPrototypeOf(DonationCard.prototype), 'constructor', this).apply(this, arguments);
 	  }
 
 	  _createClass(DonationCard, [{
-	    key: "render",
+	    key: 'assignDonation',
+	    value: function assignDonation(donationId, e) {
+	      e.preventDefault();
+
+	      var currentSession = undefined;
+	      console.log(donationId);
+
+	      _axios2['default'].get('/sign_in').then((function (res) {
+	        currentSession = res.data.passport.user;
+	        console.log(currentSession);
+	      }).bind(this)).then(function () {
+	        _axios2['default'].post('/api/donations/assign_donation', {
+	          donator_id: currentSession,
+	          donation_id: donationId
+	        }).then((function (res) {
+	          console.log(res);
+	        }).bind(this))['catch']((function (err) {
+	          console.log(err);
+	        }).bind(this));
+	      });
+	    }
+	  }, {
+	    key: 'render',
 	    value: function render() {
 	      var description = this.props.description;
 	      var contents = this.props.contents;
 	      var donator = this.props.donator;
+	      var donationId = this.props.id;
 
-	      return _react2["default"].createElement(
-	        "div",
-	        { id: "donation_card" },
-	        _react2["default"].createElement(
-	          "h1",
+	      // console.log(currentUser);
+
+	      return _react2['default'].createElement(
+	        'div',
+	        { id: 'donation_card' },
+	        _react2['default'].createElement(
+	          'h1',
 	          null,
-	          "Donation from ",
+	          'Donation from ',
 	          donator
 	        ),
-	        _react2["default"].createElement(
-	          "ul",
-	          { id: "donation-card-contents" },
-	          _react2["default"].createElement(
-	            "li",
+	        _react2['default'].createElement(
+	          'ul',
+	          { id: 'donation-card-contents' },
+	          _react2['default'].createElement(
+	            'li',
 	            null,
-	            "Description: ",
+	            'Description: ',
 	            description
 	          ),
-	          _react2["default"].createElement(
-	            "li",
+	          _react2['default'].createElement(
+	            'li',
 	            null,
-	            "Contents: ",
+	            'Contents: ',
 	            contents
 	          )
+	        ),
+	        _react2['default'].createElement(
+	          'button',
+	          { id: donationId, onClick: this.assignDonation.bind(this, donationId) },
+	          'Request Donation'
 	        )
 	      );
 	    }
 	  }]);
 
 	  return DonationCard;
-	})(_react2["default"].Component);
+	})(_react2['default'].Component);
 
-	exports["default"] = DonationCard;
-	module.exports = exports["default"];
+	exports['default'] = DonationCard;
+	module.exports = exports['default'];
 
 /***/ },
 /* 281 */

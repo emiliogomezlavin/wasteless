@@ -74,13 +74,14 @@ import DonationMap from './partials/donation_map.js'
 // }
 
 var donationArray = [];
+let currentSession;
 
 const DonationList = ({donations}) => {
   // Map through the todos
   const donationNode = donations.map((donation, index) => {
     return (
     	<div key={index}>
-    		<DonationCard description={donation.description} contents={donation.contents} donator={donation.donator_id} />
+    		<DonationCard description={donation.description} contents={donation.contents} donator={donation.donator_id} id={donation.id}/>
     	</div>)
   });
   return (<div className="list-group" style={{marginTop:'30px'}}>{donationNode}</div>);
@@ -90,7 +91,7 @@ const DonationList = ({donations}) => {
 class Donations extends React.Component {
   constructor(props){
   	super(props);
-  	this.state = {donations: donationArray, description: '', contents: ''};
+  	this.state = {donations: donationArray, description: '', contents: '', currentSession: ''};
     // this.handleChange = this.handleChange.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -103,35 +104,28 @@ class Donations extends React.Component {
 
   componentDidMount(){
   	let _this = this;
-  	let currentSession;
   	this.serverRequest = 
-  		// axios.get('/sign_in')
-    //       .then(function(res){
-    //         currentSession = res.data.passport.user;
-    //       }.bind(this))
-    //     .then(function(){
+  		axios.get('/sign_in')
+          .then(function(res){
+            this.state.currentSession = res.data.passport.user;
+          }.bind(this))
+        .then(function(){
           axios.get('/api/donations')
 			  		.then(function(res){
-
 			  			_this.setState({
 			  				donations: res.data.data
 			  		})
 			  		donationArray = this.state.donations;
-			  		console.log("after hitting backend", donationArray)
 			  	}.bind(this))
-        // })
+        })
 
   }
 
 
   handleDonationSubmit(event){
-
-  
   	event.preventDefault();
 
-  	console.log(this.state.description, this.state.contents)
-
-    var newDonation = {}
+    var newDonation = {};
     var description = this.state.description;
     var contents = this.state.contents;
 

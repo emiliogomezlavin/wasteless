@@ -32,6 +32,25 @@ router.post('/new', function (req, res) {
     .catch(handleResponse);
 })
 
+
+// Create new donation
+router.post('/assign_donation', function (req, res) {
+  console.log("the body works", req.body);
+  knex('donation_users')
+    .returning(['id', 'donation_id', 'interested_user_id', 'message'])
+    .insert({
+      donation_id: req.body.donation_id,
+      interested_user_id: req.body.donator_id,
+      message: "el mensaje"
+    })
+    .then(function(data){
+      res.json({
+        data: data
+      })
+    })
+    .catch(handleResponse);
+})
+
 // Show donation
 router.get('/:id', function (req, res) {
   knex('donations')
