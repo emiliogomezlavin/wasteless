@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 
-import { Router, Route, Link, IndexRoute, useRouterHistory } from 'react-router';
+import { Router, Route, Link, IndexRoute, useRouterHistory } from 'react-router'
 
 import Main from './components/main.js'
 import Whoops404 from './components/404.js'
