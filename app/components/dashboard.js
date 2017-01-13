@@ -1,6 +1,8 @@
 import axios from 'axios'
 import React from 'react'
 import { Link } from 'react-router';
+import Cookie from 'react-cookie';
+
 
 class Dashboard extends React.Component {
 

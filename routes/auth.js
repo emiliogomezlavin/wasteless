@@ -41,6 +41,7 @@ router.post('/sign_in', function(req,res,next){
 
 
 router.get('/sign_in', function(req,res,next){
+  console.log(req.session)
   res.send(req.session);
 });
 
