@@ -1,7 +1,31 @@
 html{
-  font:14px normal Arial, sans-serif;
+  font:14px;
+  font-family: 'Quicksand', Arial, sans-serif;
   color:#626771;
   background-color:#fff;
+}
+
+/* Sign in and Landing page styles */
+.subscribe {
+  color: white;
+  text-align: center;
+  font-family: 'Petit Formal Script', cursive;
+}
+.subscribe button{
+  background-color: #a3d8d6;
+}
+/*
+font-family: 'Fredericka the Great', cursive;
+font-family: 'Petit Formal Script', cursive;
+font-family: 'Quicksand', sans-serif;
+font-family: 'Poiret One', cursive;
+*/
+.intro-title {
+  text-align: center;
+  font-family: 'Fredericka the Great', cursive;
+}
+.social {
+  margin-top: 5px;
 }
 
 /* Header Section */
@@ -31,17 +55,7 @@ html{
 	margin-bottom: 10px;
   font-size: 60px;
 }
-.intro span {
-	color: #a7c44c;
-	font-weight: 600;
-}
-.intro p {
-	color: #fff;
-	font-size: 32px;
-	font-weight: 300;
-	margin-top: 10px;
-	margin-bottom: 40px;
-}
+
 header .intro-text {
 	padding-top: 250px;
 	text-align: center;
@@ -54,9 +68,11 @@ header .intro-text {
     font-size: 36px;
   }
 }
+
 .sign-in-form {
+  font-family: 'Quicksand' !important;
   text-align: center;
-  background-color: #fff;
+  background-color: rgba(255,255,255,0.82);
   border-radius: 10px;
   font: inherit;
   border: 6px solid #a3d8d6;
@@ -66,8 +82,12 @@ header .intro-text {
   width: 384px;
   outline: none;
   display: block;
-  color: #7B8585;
+  color: #555656;
   margin: 0 auto;
+}
+.sign-in-form button {
+  background-color: #a3d8d6;
+  color: white;
 }
 
 #sidebar-wrapper {

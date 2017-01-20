@@ -58,6 +58,14 @@
 
 	var _reactRouter = __webpack_require__(178);
 
+	var _reactCookie = __webpack_require__(277);
+
+	var _reactCookie2 = _interopRequireDefault(_reactCookie);
+
+	var _axios = __webpack_require__(244);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
 	var _componentsMainJs = __webpack_require__(241);
 
 	var _componentsMainJs2 = _interopRequireDefault(_componentsMainJs);
@@ -27195,7 +27203,7 @@
 	'use strict';
 
 	Object.defineProperty(exports, '__esModule', {
-	    value: true
+	  value: true
 	});
 
 	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -27212,98 +27220,146 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
+	var _reactCookie = __webpack_require__(277);
+
+	var _reactCookie2 = _interopRequireDefault(_reactCookie);
+
+	var _axios = __webpack_require__(244);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
 	var _reactRouter = __webpack_require__(178);
 
 	var Main = (function (_React$Component) {
-	    _inherits(Main, _React$Component);
+	  _inherits(Main, _React$Component);
 
-	    function Main() {
-	        _classCallCheck(this, Main);
+	  function Main() {
+	    _classCallCheck(this, Main);
 
-	        _get(Object.getPrototypeOf(Main.prototype), 'constructor', this).apply(this, arguments);
+	    _get(Object.getPrototypeOf(Main.prototype), 'constructor', this).apply(this, arguments);
+	  }
+
+	  _createClass(Main, [{
+	    key: 'onLogin',
+	    value: function onLogin() {
+	      _axios2['default'].get('/sign_in').then((function (res) {
+	        _reactCookie2['default'].save("userId", res.data.passport.user);
+	        return true;
+	      }).bind(this))['catch'](function (err) {
+	        console.log(err);
+	      });
+	    }
+	  }, {
+	    key: 'onLogout',
+	    value: function onLogout() {
+	      _reactCookie2['default'].remove('userId');
 	    }
 
-	    _createClass(Main, [{
-	        key: 'render',
-	        value: function render() {
-	            return _react2['default'].createElement(
-	                'div',
-	                null,
+	    // const loginCheck = () => {
+	    //   console.log("hey hey hey")
+	    //   axios.get('/sign_in')
+	    //     .then(function(res){
+	    //       console.log(res)
+	    //       Cookie.save("userId", res.id)
+	    //       return true;
+	    //     }.bind(this))
+	    //     .catch(function(err) {
+	    //       console.log(err)
+	    //     })
+	    //     return false
+	    // }
+	    //
+	    // const requireAuth = (nextState, replace) => {
+	    //   if (!loginCheck()) {
+	    //     console.log("FUCK YOU")
+	    //     replace({
+	    //       pathname: '/donations'
+	    //     })
+	    //   }
+	    // }
+
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      this.onLogin();
+	      return _react2['default'].createElement(
+	        'div',
+	        null,
+	        _react2['default'].createElement(
+	          'nav',
+	          { className: 'navbar navbar-default' },
+	          _react2['default'].createElement(
+	            'div',
+	            { className: 'container-fluid' },
+	            _react2['default'].createElement(
+	              'div',
+	              { className: 'navbar-header' },
+	              _react2['default'].createElement(
+	                'a',
+	                { className: 'navbar-brand', href: '#' },
+	                'Wasteless'
+	              )
+	            ),
+	            _react2['default'].createElement(
+	              'div',
+	              { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
+	              _react2['default'].createElement(
+	                'ul',
+	                { className: 'nav navbar-nav' },
 	                _react2['default'].createElement(
-	                    'nav',
-	                    { className: 'navbar navbar-default' },
-	                    _react2['default'].createElement(
-	                        'div',
-	                        { className: 'container-fluid' },
-	                        _react2['default'].createElement(
-	                            'div',
-	                            { className: 'navbar-header' },
-	                            _react2['default'].createElement(
-	                                'a',
-	                                { className: 'navbar-brand', href: '#' },
-	                                'Wasteless'
-	                            )
-	                        ),
-	                        _react2['default'].createElement(
-	                            'div',
-	                            { className: 'collapse navbar-collapse', id: 'bs-example-navbar-collapse-1' },
-	                            _react2['default'].createElement(
-	                                'ul',
-	                                { className: 'nav navbar-nav' },
-	                                _react2['default'].createElement(
-	                                    'li',
-	                                    null,
-	                                    _react2['default'].createElement(
-	                                        _reactRouter.Link,
-	                                        { to: '/', activeClassName: 'active' },
-	                                        'Dashboard'
-	                                    )
-	                                ),
-	                                _react2['default'].createElement(
-	                                    'li',
-	                                    null,
-	                                    _react2['default'].createElement(
-	                                        _reactRouter.Link,
-	                                        { to: '/profile', activeClassName: 'active' },
-	                                        'Profile'
-	                                    )
-	                                ),
-	                                _react2['default'].createElement(
-	                                    'li',
-	                                    null,
-	                                    _react2['default'].createElement(
-	                                        _reactRouter.Link,
-	                                        { to: '/past_donations', activeClassName: 'active' },
-	                                        'Past Donations'
-	                                    )
-	                                ),
-	                                _react2['default'].createElement(
-	                                    'li',
-	                                    null,
-	                                    _react2['default'].createElement(
-	                                        'form',
-	                                        { action: '/sign_out', method: 'post' },
-	                                        _react2['default'].createElement(
-	                                            'button',
-	                                            { className: 'btn sign-out', value: 'Sign Out' },
-	                                            'Sign Out'
-	                                        )
-	                                    )
-	                                )
-	                            )
-	                        )
-	                    )
+	                  'li',
+	                  null,
+	                  _react2['default'].createElement(
+	                    _reactRouter.Link,
+	                    { to: '/', activeClassName: 'active' },
+	                    'Dashboard'
+	                  )
 	                ),
 	                _react2['default'].createElement(
-	                    'div',
-	                    { className: 'container' },
-	                    this.props.children
+	                  'li',
+	                  null,
+	                  _react2['default'].createElement(
+	                    _reactRouter.Link,
+	                    { to: '/profile', activeClassName: 'active' },
+	                    'Profile'
+	                  )
+	                ),
+	                _react2['default'].createElement(
+	                  'li',
+	                  null,
+	                  _react2['default'].createElement(
+	                    _reactRouter.Link,
+	                    { to: '/past_donations', activeClassName: 'active' },
+	                    'Past Donations'
+	                  )
+	                ),
+	                _react2['default'].createElement(
+	                  'li',
+	                  null,
+	                  _react2['default'].createElement(
+	                    'form',
+	                    { action: '/sign_out', method: 'post', onSubmit: this.onLogout },
+	                    _react2['default'].createElement(
+	                      'button',
+	                      { className: 'btn sign-out', value: 'Sign Out' },
+	                      'Sign Out'
+	                    )
+	                  )
 	                )
-	            );
-	        }
-	    }]);
+	              )
+	            )
+	          )
+	        ),
+	        _react2['default'].createElement(
+	          'div',
+	          { className: 'container' },
+	          this.props.children
+	        )
+	      );
+	    }
+	  }]);
 
-	    return Main;
+	  return Main;
 	})(_react2['default'].Component);
 
 	exports['default'] = Main;
@@ -27380,6 +27436,10 @@
 	var _react2 = _interopRequireDefault(_react);
 
 	var _reactRouter = __webpack_require__(178);
+
+	var _reactCookie = __webpack_require__(277);
+
+	var _reactCookie2 = _interopRequireDefault(_reactCookie);
 
 	var Dashboard = (function (_React$Component) {
 	  _inherits(Dashboard, _React$Component);
@@ -29642,7 +29702,6 @@
 	      var currentSession = undefined;
 
 	      this.serverRequest = _axios2['default'].get('/sign_in').then((function (res) {
-	        _reactCookie2['default'].load(res.data.passport.user);
 	        currentSession = res.data.passport.user;
 	      }).bind(this)).then(function () {
 	        _axios2['default'].get('/api/users/' + currentSession).then((function (res) {
@@ -29656,7 +29715,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      console.log(_reactCookie2['default']);
+	      // console.log(this.state.userId)
 	      if (this.state.user) {
 	        return _react2['default'].createElement(
 	          'section',

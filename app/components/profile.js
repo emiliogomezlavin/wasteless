@@ -16,7 +16,6 @@ class Profile extends React.Component {
       this.serverRequest =
         axios.get('/sign_in')
           .then(function(res){
-            Cookie.load(res.data.passport.user)
             currentSession = res.data.passport.user;
           }.bind(this))
         .then(function(){
@@ -31,7 +30,7 @@ class Profile extends React.Component {
     }
 
     render() {
-      console.log(Cookie)
+      // console.log(this.state.userId)
       if (this.state.user) {
         return (
           <section id="user">
