@@ -2,7 +2,6 @@ const express = require('express'),
       path = require('path'),
       server = express(),
       bodyParser = require('body-parser'),
-      db = require('./models/database'),
       session = require('express-session'),
       cookieParser = require('cookie-parser'),
       passport = require('./auth/local'),
@@ -20,7 +19,7 @@ require('dotenv').config();
 
 // session / passport config
 server.use(session({
-  secret: '\x14x\xf18!\xcb|\xd2(\xa2d\x0cY\x04\x95\xef(\xfd\xc4E\x08(In',
+  secret: process.env.SECRET_KEY,
   resave: false,
   saveUninitialized: true
 }));
