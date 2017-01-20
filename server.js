@@ -19,7 +19,7 @@ require('dotenv').config();
 
 // session / passport config
 server.use(session({
-  secret: process.env.SECRET_KEY,
+  secret: 'whiskyismydrink',
   resave: false,
   saveUninitialized: true
 }));
