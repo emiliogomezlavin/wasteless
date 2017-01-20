@@ -1,7 +1,7 @@
 const databaseName = 'wasteless_app';
 
 module.exports = {
-  development: {
+  production: {
     client: 'postgresql',
     connection: {
       database: 'wasteless_app'
