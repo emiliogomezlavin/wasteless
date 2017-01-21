@@ -14,7 +14,7 @@ require('dotenv').config();
 
 // server configs
 server.use(express.static('./app/public'));
-server.use(cookieParser());
+server.use(cookieParser(process.env.SECRET_KEY));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
 
