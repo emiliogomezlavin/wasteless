@@ -9,17 +9,18 @@ const express = require('express'),
       _ = require('underscore');
 
 
+// ENV file setup
+require('dotenv').config();
 
 // server configs
 server.use(express.static('./app/public'));
 server.use(cookieParser());
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
-require('dotenv').config();
 
 // session / passport config
 server.use(session({
-  secret: 'whiskyismydrink',
+  secret: process.env.SECRET_KEY,
   resave: false,
   saveUninitialized: true
 }));
