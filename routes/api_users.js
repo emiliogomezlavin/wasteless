@@ -14,6 +14,8 @@ router.get('/donators', function (req, res) {
   })
   .catch(handleResponse)
 })
+
+
 // User profile
 router.get('/:id', function(req, res) {
   knex('users').whereIn('id', req.params.id).then(function(data) {
@@ -39,6 +41,11 @@ router.put('/:id', function(req, res) {
     console.log("Updated Profile: " + profile)
   })
   .catch(handleResponse)
+})
+
+// User's Past Donations
+router.get('/:id/past-dontations', function(req, res){
+  res.json({ message: "This is user past dontation endpoint"})
 })
 
 router.delete('/:id/delete', function(req, res, next) {

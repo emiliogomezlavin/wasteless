@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 import { Router, Route, Link, IndexRoute, useRouterHistory } from 'react-router'
-import Cookie from 'react-cookie';
+import cookie from 'react-cookie';
 import axios from 'axios'
 
 import Main from './components/main.js'
@@ -20,6 +20,14 @@ import EditProfile from './components/profile_edit.js'
 import { createHashHistory } from 'history'
 const appHistory = useRouterHistory(createHashHistory)({ queryKey: false })
 const NotFoundRoute = Router.NotFoundRoute
+
+// Need create a function that checks to see if there is a Cookie
+// Use onEnter for react and pass an object
+
+const requireAuth = (nextState, replace) => {
+  var user = cookie.load("userId")
+  console.log(user);
+}
 
 const routes = (
   <Router history={appHistory}>
