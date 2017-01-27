@@ -12,13 +12,13 @@ class Dashboard extends React.Component {
           <div id="dashboard">
             <h2>Welcome to the WasteLess dashboard</h2>
             <div className="row">
-              <div className="col-sm-6 col-md-3">
+              <div className="col-sm-6">
                 <div className="bg-primary">
                   <h1>Something 1235</h1>
                   <p>New Something Orders</p>
                 </div>
               </div>
-            <div className="col-sm-6 col-md-3">
+            <div className="col-sm-6">
               <div className="bg-success">
                 <h1>Card 2 1235</h1>
                 <p>New Something Orders</p>

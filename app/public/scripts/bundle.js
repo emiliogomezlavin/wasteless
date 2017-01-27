@@ -29324,7 +29324,7 @@
 	            { className: 'row' },
 	            _react2['default'].createElement(
 	              'div',
-	              { className: 'col-sm-6 col-md-3' },
+	              { className: 'col-sm-6' },
 	              _react2['default'].createElement(
 	                'div',
 	                { className: 'bg-primary' },
@@ -29342,7 +29342,7 @@
 	            ),
 	            _react2['default'].createElement(
 	              'div',
-	              { className: 'col-sm-6 col-md-3' },
+	              { className: 'col-sm-6' },
 	              _react2['default'].createElement(
 	                'div',
 	                { className: 'bg-success' },
