@@ -29318,6 +29318,46 @@
 	            'h2',
 	            null,
 	            'Welcome to the WasteLess dashboard'
+	          ),
+	          _react2['default'].createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2['default'].createElement(
+	              'div',
+	              { className: 'col-sm-6 col-md-3' },
+	              _react2['default'].createElement(
+	                'div',
+	                { className: 'bg-primary' },
+	                _react2['default'].createElement(
+	                  'h1',
+	                  null,
+	                  'Something 1235'
+	                ),
+	                _react2['default'].createElement(
+	                  'p',
+	                  null,
+	                  'New Something Orders'
+	                )
+	              )
+	            ),
+	            _react2['default'].createElement(
+	              'div',
+	              { className: 'col-sm-6 col-md-3' },
+	              _react2['default'].createElement(
+	                'div',
+	                { className: 'bg-success' },
+	                _react2['default'].createElement(
+	                  'h1',
+	                  null,
+	                  'Card 2 1235'
+	                ),
+	                _react2['default'].createElement(
+	                  'p',
+	                  null,
+	                  'New Something Orders'
+	                )
+	              )
+	            )
 	          )
 	        ),
 	        _react2['default'].createElement(
@@ -29366,12 +29406,12 @@
 	                )
 	              )
 	            )
-	          ),
-	          _react2['default'].createElement(
-	            'div',
-	            { className: 'dashboard-view' },
-	            this.props.children
 	          )
+	        ),
+	        _react2['default'].createElement(
+	          'div',
+	          { className: 'dashboard-view' },
+	          this.props.children
 	        )
 	      );
 	    }
