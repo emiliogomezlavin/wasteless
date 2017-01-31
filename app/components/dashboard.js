@@ -2,7 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { Link } from 'react-router'
 import Cookie from 'react-cookie'
-import { AreaChart, Area, XAxis, YAxis, CartesianGrid } from 'recharts'
+import { AreaChart, Area, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts'
 
 const data = [
       {name: '1', uv: 4000, pv: 2400, amt: 2400},
@@ -41,13 +41,29 @@ class Dashboard extends React.Component {
               </div>
             </div>
           </div>
-          <h3>Sample Line Graph</h3>
-          <AreaChart width={300} height={200} data={data}>
-            <Area type='monotone' dataKey='uv' stroke='#8884d8' fill='#884d8' />
-            <CartesianGrid stroke='#ccc' />
-            <XAxis dataKey='name' />
-            <YAxis />
-          </AreaChart>
+          <div className="row">
+            <div className="col-sm-4">
+              <h3>Sample Line Graph</h3>
+              <AreaChart width={300} height={200} data={data}>
+                <Area type='monotone' dataKey='uv' stroke='#8884d8' fill='#884d8' />
+                <CartesianGrid stroke='#ccc' />
+                <XAxis dataKey='name' />
+                <YAxis />
+              </AreaChart>
+            </div>
+            <div className="col-sm-4">
+              <h3>Sample Bar Graph</h3>
+              <BarChart width={600} height={300} data={data}>
+                <XAxis dataKey="name" />
+                <YAxis />
+                <CartesianGrid strokeDasharray="3 3" />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="pv" fill="#8884d8" />
+                <Bar dataKey="uv" fill="#82ca9d" />
+              </BarChart>
+            </div>
+          </div>
         </div>
           <div id="sidebar-wrapper">
             <nav id="spy">
