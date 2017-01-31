@@ -2,7 +2,7 @@ import axios from 'axios'
 import React from 'react'
 import { Link } from 'react-router'
 import Cookie from 'react-cookie'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid } from 'recharts'
+import { AreaChart, Area, XAxis, YAxis, CartesianGrid } from 'recharts'
 
 const data = [
       {name: '1', uv: 4000, pv: 2400, amt: 2400},
@@ -42,12 +42,12 @@ class Dashboard extends React.Component {
             </div>
           </div>
           <h3>Sample Line Graph</h3>
-          <LineChart width={300} height={200} data={data}>
-            <Line type='monotone' dataKey='uv' stroke='#8884d8' />
+          <AreaChart width={300} height={200} data={data}>
+            <Area type='monotone' dataKey='uv' stroke='#8884d8' fill='#884d8' />
             <CartesianGrid stroke='#ccc' />
             <XAxis dataKey='name' />
             <YAxis />
-          </LineChart>
+          </AreaChart>
         </div>
           <div id="sidebar-wrapper">
             <nav id="spy">

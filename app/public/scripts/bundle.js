@@ -29387,9 +29387,9 @@
 	            'Sample Line Graph'
 	          ),
 	          _react2['default'].createElement(
-	            _recharts.LineChart,
+	            _recharts.AreaChart,
 	            { width: 300, height: 200, data: data },
-	            _react2['default'].createElement(_recharts.Line, { type: 'monotone', dataKey: 'uv', stroke: '#8884d8' }),
+	            _react2['default'].createElement(_recharts.Area, { type: 'monotone', dataKey: 'uv', stroke: '#8884d8', fill: '#884d8' }),
 	            _react2['default'].createElement(_recharts.CartesianGrid, { stroke: '#ccc' }),
 	            _react2['default'].createElement(_recharts.XAxis, { dataKey: 'name' }),
 	            _react2['default'].createElement(_recharts.YAxis, null)
