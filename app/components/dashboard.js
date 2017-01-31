@@ -44,8 +44,8 @@ class Dashboard extends React.Component {
           <div className="row">
             <div className="col-sm-4">
               <h3>Sample Line Graph</h3>
-              <AreaChart width={300} height={200} data={data}>
-                <Area type='monotone' dataKey='uv' stroke='#8884d8' fill='#884d8' />
+              <AreaChart width={500} height={250} data={data}>
+                <Area type='monotone' dataKey='uv' stroke='#9ae2e8' fill='#9ae2e8' />
                 <CartesianGrid stroke='#ccc' />
                 <XAxis dataKey='name' />
                 <YAxis />
@@ -59,15 +59,25 @@ class Dashboard extends React.Component {
                 <CartesianGrid strokeDasharray="3 3" />
                 <Tooltip />
                 <Legend />
-                <Bar dataKey="pv" fill="#8884d8" />
+                <Bar dataKey="pv" fill="#9ae2e8" />
                 <Bar dataKey="uv" fill="#82ca9d" />
               </BarChart>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-sm-8">
+              <h3>Feeds</h3>
+              <ul>
+                <li>Post 1</li>
+                <li>Post 2</li>
+              </ul>
             </div>
           </div>
         </div>
           <div id="sidebar-wrapper">
             <nav id="spy">
               <ul className="sidebar-nav nav">
+                <li><Link to="/" className="active" activeClassName="active">Dashboard</Link></li>
                 <li><Link to="/profile" activeClassName="active">Profile</Link></li>
                 <li><Link to="/upcoming_pickups" activeClassName="active">Pick Ups</Link></li>
                 <li><Link to="/past_donations" activeClassName="active">Past Donations</Link></li>

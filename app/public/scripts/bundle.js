@@ -29166,8 +29166,8 @@
 	                  null,
 	                  _react2['default'].createElement(
 	                    _reactRouter.Link,
-	                    { to: '/', activeClassName: 'active' },
-	                    'Dashboard'
+	                    { to: '/donations', activeClassName: 'active' },
+	                    'Donations'
 	                  )
 	                ),
 	                _react2['default'].createElement(
@@ -29394,8 +29394,8 @@
 	              ),
 	              _react2['default'].createElement(
 	                _recharts.AreaChart,
-	                { width: 300, height: 200, data: data },
-	                _react2['default'].createElement(_recharts.Area, { type: 'monotone', dataKey: 'uv', stroke: '#8884d8', fill: '#884d8' }),
+	                { width: 500, height: 250, data: data },
+	                _react2['default'].createElement(_recharts.Area, { type: 'monotone', dataKey: 'uv', stroke: '#9ae2e8', fill: '#9ae2e8' }),
 	                _react2['default'].createElement(_recharts.CartesianGrid, { stroke: '#ccc' }),
 	                _react2['default'].createElement(_recharts.XAxis, { dataKey: 'name' }),
 	                _react2['default'].createElement(_recharts.YAxis, null)
@@ -29417,8 +29417,35 @@
 	                _react2['default'].createElement(_recharts.CartesianGrid, { strokeDasharray: '3 3' }),
 	                _react2['default'].createElement(_recharts.Tooltip, null),
 	                _react2['default'].createElement(_recharts.Legend, null),
-	                _react2['default'].createElement(_recharts.Bar, { dataKey: 'pv', fill: '#8884d8' }),
+	                _react2['default'].createElement(_recharts.Bar, { dataKey: 'pv', fill: '#9ae2e8' }),
 	                _react2['default'].createElement(_recharts.Bar, { dataKey: 'uv', fill: '#82ca9d' })
+	              )
+	            )
+	          ),
+	          _react2['default'].createElement(
+	            'div',
+	            { className: 'row' },
+	            _react2['default'].createElement(
+	              'div',
+	              { className: 'col-sm-8' },
+	              _react2['default'].createElement(
+	                'h3',
+	                null,
+	                'Feeds'
+	              ),
+	              _react2['default'].createElement(
+	                'ul',
+	                null,
+	                _react2['default'].createElement(
+	                  'li',
+	                  null,
+	                  'Post 1'
+	                ),
+	                _react2['default'].createElement(
+	                  'li',
+	                  null,
+	                  'Post 2'
+	                )
 	              )
 	            )
 	          )
@@ -29432,6 +29459,15 @@
 	            _react2['default'].createElement(
 	              'ul',
 	              { className: 'sidebar-nav nav' },
+	              _react2['default'].createElement(
+	                'li',
+	                null,
+	                _react2['default'].createElement(
+	                  _reactRouter.Link,
+	                  { to: '/', className: 'active', activeClassName: 'active' },
+	                  'Dashboard'
+	                )
+	              ),
 	              _react2['default'].createElement(
 	                'li',
 	                null,
