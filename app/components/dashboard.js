@@ -22,25 +22,26 @@ class Dashboard extends React.Component {
           <div id="dashboard">
             <h2>Welcome to the WasteLess dashboard</h2>
             <div className="row">
-              <div className="col-sm-6">
+              <div className="col-sm-3">
                 <div className="bg-primary">
                   <h1>Something 1235</h1>
                   <p>New Something Orders</p>
                 </div>
               </div>
-            <div className="col-sm-6">
+            <div className="col-sm-3">
               <div className="bg-success">
                 <h1>Card 2 1235</h1>
                 <p>New Something Orders</p>
               </div>
             </div>
-            <div className="col-sm-6">
+            <div className="col-sm-3">
               <div className="bg-success">
                 <h1>Card 2 1235</h1>
                 <p>New Something Orders</p>
               </div>
             </div>
           </div>
+          <h3>Sample Line Graph</h3>
           <LineChart width={600} height={400} data={data}>
             <Line type='monotone' dataKey='uv' stroke='#8884d8' />
             <CartesianGrid stroke='#ccc' />

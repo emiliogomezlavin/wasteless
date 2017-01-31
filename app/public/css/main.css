@@ -94,7 +94,7 @@ header .intro-text {
   margin-left: -250px;
   left: 250px;
   width: 250px;
-  background: #000;
+  background: #272634;
   position: fixed;
   height: 100%;
   overflow-y: auto;
@@ -124,13 +124,11 @@ header .intro-text {
   color: #999999;
   display: block;
   text-decoration: none;
-  padding-left: 60px;
 }
 .sidebar-nav li a span:before {
   position: absolute;
   left: 0;
   color: #41484c;
-  text-align: center;
   width: 20px;
   line-height: 18px;
 }
@@ -188,6 +186,7 @@ ul.user-profile {
   position: fixed;
   left: 260px;
   display: inline;
+  width: 100%;
 }
 
 /* DONATIONS VIEW */

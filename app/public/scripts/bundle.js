@@ -29328,7 +29328,7 @@
 	            { className: 'row' },
 	            _react2['default'].createElement(
 	              'div',
-	              { className: 'col-sm-6' },
+	              { className: 'col-sm-3' },
 	              _react2['default'].createElement(
 	                'div',
 	                { className: 'bg-primary' },
@@ -29346,7 +29346,7 @@
 	            ),
 	            _react2['default'].createElement(
 	              'div',
-	              { className: 'col-sm-6' },
+	              { className: 'col-sm-3' },
 	              _react2['default'].createElement(
 	                'div',
 	                { className: 'bg-success' },
@@ -29364,7 +29364,7 @@
 	            ),
 	            _react2['default'].createElement(
 	              'div',
-	              { className: 'col-sm-6' },
+	              { className: 'col-sm-3' },
 	              _react2['default'].createElement(
 	                'div',
 	                { className: 'bg-success' },
@@ -29380,6 +29380,11 @@
 	                )
 	              )
 	            )
+	          ),
+	          _react2['default'].createElement(
+	            'h3',
+	            null,
+	            'Sample Line Graph'
 	          ),
 	          _react2['default'].createElement(
 	            _recharts.LineChart,
