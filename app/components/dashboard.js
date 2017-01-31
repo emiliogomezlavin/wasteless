@@ -24,6 +24,12 @@ class Dashboard extends React.Component {
                 <p>New Something Orders</p>
               </div>
             </div>
+            <div className="col-sm-6">
+              <div className="bg-success">
+                <h1>Card 2 1235</h1>
+                <p>New Something Orders</p>
+              </div>
+            </div>
           </div>
         </div>
           <div id="sidebar-wrapper">
