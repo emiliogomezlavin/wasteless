@@ -1,0 +1,108 @@
+/* ################### */
+/* DASHBOARD */
+/* ################### */
+.dashboard-view {
+  position: fixed;
+  display: inline;
+  left: 260px;
+  margin-top: 75px;
+}
+.user-profile li {
+  list-style-type: none;
+}
+ul.user-profile {
+  padding: 0;
+}
+#user {
+  position: fixed;
+  left: 260px;
+  display: inline;
+}
+#dashboard {
+  position: fixed;
+  left: 260px;
+  display: inline;
+  width: 90%;
+}
+.bg-primary {
+  background-color: #82ca9d;
+  color:#333;
+}
+.cards {
+  display: inline;
+}
+.card-description {
+  padding: 5px;
+}
+/* ################### */
+/* SIDE NAV */
+/* ################### */
+#sidebar-wrapper {
+  margin-left: -250px;
+  left: 250px;
+  width: 250px;
+  background: #272634;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  display: inline;
+  transition: all 0.4s ease 0s;
+}
+#wrapper.active {
+  padding-left: 0;
+}
+#wrapper.active #sidebar-wrapper {
+  left: 0;
+}
+.sidebar-nav {
+  position: absolute;
+  top: 0;
+  width: 250px;
+  list-style: none;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+.sidebar-nav li {
+  line-height: 40px;
+  text-indent: 20px;
+}
+.sidebar-nav li a {
+  color: #999999;
+  display: block;
+  text-decoration: none;
+}
+.sidebar-nav li a span:before {
+  position: absolute;
+  left: 0;
+  color: #41484c;
+  width: 20px;
+  line-height: 18px;
+}
+.sidebar-nav li a:hover,
+.sidebar-nav li.active {
+  color: #fff;
+  background: #a3d8d6;
+  text-decoration: none;
+}
+.sidebar-nav > .sidebar-brand {
+  height: 65px;
+  line-height: 60px;
+  font-size: 18px;
+}
+.sidebar-nav > .sidebar-brand a {
+  color: #999999;
+}
+.sidebar-nav > .sidebar-brand a:hover {
+  color: #a3d8d6;
+  background: none;
+}
+.navbar {
+  margin-bottom: 0px !important;
+}
+.navbar-nav {
+  float: right;
+}
+.sign-out {
+  margin-top: 5px;
+}

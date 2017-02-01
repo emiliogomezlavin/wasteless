@@ -78,35 +78,39 @@
 
 	var _componentsDashboardJs2 = _interopRequireDefault(_componentsDashboardJs);
 
-	var _componentsPast_donationsJs = __webpack_require__(714);
+	var _componentsPartialsDashboard_viewJs = __webpack_require__(731);
+
+	var _componentsPartialsDashboard_viewJs2 = _interopRequireDefault(_componentsPartialsDashboard_viewJs);
+
+	var _componentsPast_donationsJs = __webpack_require__(715);
 
 	var _componentsPast_donationsJs2 = _interopRequireDefault(_componentsPast_donationsJs);
 
-	var _componentsPickupsJs = __webpack_require__(715);
+	var _componentsPickupsJs = __webpack_require__(716);
 
 	var _componentsPickupsJs2 = _interopRequireDefault(_componentsPickupsJs);
 
-	var _componentsLeader_boardJs = __webpack_require__(716);
+	var _componentsLeader_boardJs = __webpack_require__(717);
 
 	var _componentsLeader_boardJs2 = _interopRequireDefault(_componentsLeader_boardJs);
 
-	var _componentsFollowingJs = __webpack_require__(717);
+	var _componentsFollowingJs = __webpack_require__(718);
 
 	var _componentsFollowingJs2 = _interopRequireDefault(_componentsFollowingJs);
 
-	var _componentsDonationsJs = __webpack_require__(718);
+	var _componentsDonationsJs = __webpack_require__(719);
 
 	var _componentsDonationsJs2 = _interopRequireDefault(_componentsDonationsJs);
 
-	var _componentsProfileJs = __webpack_require__(721);
+	var _componentsProfileJs = __webpack_require__(722);
 
 	var _componentsProfileJs2 = _interopRequireDefault(_componentsProfileJs);
 
-	var _componentsProfile_editJs = __webpack_require__(722);
+	var _componentsProfile_editJs = __webpack_require__(723);
 
 	var _componentsProfile_editJs2 = _interopRequireDefault(_componentsProfile_editJs);
 
-	var _history = __webpack_require__(723);
+	var _history = __webpack_require__(724);
 
 	var appHistory = (0, _reactRouter.useRouterHistory)(_history.createHashHistory)({ queryKey: false });
 	var NotFoundRoute = _reactRouter.Router.NotFoundRoute;
@@ -128,6 +132,7 @@
 	    _react2['default'].createElement(
 	      _reactRouter.Route,
 	      { path: '/', component: _componentsDashboardJs2['default'] },
+	      _react2['default'].createElement(_reactRouter.Route, { path: 'dashboard', component: _componentsPartialsDashboard_viewJs2['default'] }),
 	      _react2['default'].createElement(_reactRouter.Route, { path: 'past_donations', component: _componentsPast_donationsJs2['default'] }),
 	      _react2['default'].createElement(_reactRouter.Route, { path: 'upcoming_pickups', component: _componentsPickupsJs2['default'] }),
 	      _react2['default'].createElement(_reactRouter.Route, { path: 'leaderboard', component: _componentsLeader_boardJs2['default'] }),
@@ -29296,10 +29301,6 @@
 
 	var _reactCookie2 = _interopRequireDefault(_reactCookie);
 
-	var _recharts = __webpack_require__(271);
-
-	var data = [{ name: '1', uv: 4000, pv: 2400, amt: 2400 }, { name: '2', uv: 3000, pv: 1398, amt: 2210 }, { name: '3', uv: 2000, pv: 9800, amt: 2290 }, { name: '4', uv: 2780, pv: 3908, amt: 2000 }, { name: '5', uv: 1890, pv: 4800, amt: 2181 }, { name: '6', uv: 2390, pv: 3800, amt: 2500 }, { name: '7', uv: 3490, pv: 4300, amt: 2100 }];
-
 	var Dashboard = (function (_React$Component) {
 	  _inherits(Dashboard, _React$Component);
 
@@ -29322,132 +29323,6 @@
 	            'h2',
 	            null,
 	            'Welcome to the WasteLess dashboard'
-	          ),
-	          _react2['default'].createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2['default'].createElement(
-	              'div',
-	              { className: 'col-sm-3' },
-	              _react2['default'].createElement(
-	                'div',
-	                { className: 'bg-primary' },
-	                _react2['default'].createElement(
-	                  'h1',
-	                  null,
-	                  'Something 1235'
-	                ),
-	                _react2['default'].createElement(
-	                  'p',
-	                  null,
-	                  'New Something Orders'
-	                )
-	              )
-	            ),
-	            _react2['default'].createElement(
-	              'div',
-	              { className: 'col-sm-3' },
-	              _react2['default'].createElement(
-	                'div',
-	                { className: 'bg-primary' },
-	                _react2['default'].createElement(
-	                  'h1',
-	                  null,
-	                  'Card 2 1235'
-	                ),
-	                _react2['default'].createElement(
-	                  'p',
-	                  null,
-	                  'New Something Orders'
-	                )
-	              )
-	            ),
-	            _react2['default'].createElement(
-	              'div',
-	              { className: 'col-sm-3' },
-	              _react2['default'].createElement(
-	                'div',
-	                { className: 'bg-primary' },
-	                _react2['default'].createElement(
-	                  'h1',
-	                  null,
-	                  'Card 2 1235'
-	                ),
-	                _react2['default'].createElement(
-	                  'p',
-	                  null,
-	                  'New Something Orders'
-	                )
-	              )
-	            )
-	          ),
-	          _react2['default'].createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2['default'].createElement(
-	              'div',
-	              { className: 'col-sm-4' },
-	              _react2['default'].createElement(
-	                'h3',
-	                null,
-	                'Sample Line Graph'
-	              ),
-	              _react2['default'].createElement(
-	                _recharts.AreaChart,
-	                { width: 500, height: 250, data: data },
-	                _react2['default'].createElement(_recharts.Area, { type: 'monotone', dataKey: 'uv', stroke: '#9ae2e8', fill: '#9ae2e8' }),
-	                _react2['default'].createElement(_recharts.CartesianGrid, { stroke: '#ccc' }),
-	                _react2['default'].createElement(_recharts.XAxis, { dataKey: 'name' }),
-	                _react2['default'].createElement(_recharts.YAxis, null)
-	              )
-	            ),
-	            _react2['default'].createElement(
-	              'div',
-	              { className: 'col-sm-4' },
-	              _react2['default'].createElement(
-	                'h3',
-	                null,
-	                'Sample Bar Graph'
-	              ),
-	              _react2['default'].createElement(
-	                _recharts.BarChart,
-	                { width: 600, height: 300, data: data },
-	                _react2['default'].createElement(_recharts.XAxis, { dataKey: 'name' }),
-	                _react2['default'].createElement(_recharts.YAxis, null),
-	                _react2['default'].createElement(_recharts.CartesianGrid, { strokeDasharray: '3 3' }),
-	                _react2['default'].createElement(_recharts.Tooltip, null),
-	                _react2['default'].createElement(_recharts.Legend, null),
-	                _react2['default'].createElement(_recharts.Bar, { dataKey: 'pv', fill: '#9ae2e8' }),
-	                _react2['default'].createElement(_recharts.Bar, { dataKey: 'uv', fill: '#82ca9d' })
-	              )
-	            )
-	          ),
-	          _react2['default'].createElement(
-	            'div',
-	            { className: 'row' },
-	            _react2['default'].createElement(
-	              'div',
-	              { className: 'col-sm-8' },
-	              _react2['default'].createElement(
-	                'h3',
-	                null,
-	                'Feeds'
-	              ),
-	              _react2['default'].createElement(
-	                'ul',
-	                null,
-	                _react2['default'].createElement(
-	                  'li',
-	                  null,
-	                  'Post 1'
-	                ),
-	                _react2['default'].createElement(
-	                  'li',
-	                  null,
-	                  'Post 2'
-	                )
-	              )
-	            )
 	          )
 	        ),
 	        _react2['default'].createElement(
@@ -29464,7 +29339,7 @@
 	                null,
 	                _react2['default'].createElement(
 	                  _reactRouter.Link,
-	                  { to: '/', className: 'active', activeClassName: 'active' },
+	                  { to: '/dashboard', className: 'active', activeClassName: 'active' },
 	                  'Dashboard'
 	                )
 	              ),
@@ -68546,6 +68421,77 @@
 /* 714 */
 /***/ function(module, exports, __webpack_require__) {
 
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _axios = __webpack_require__(243);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _recharts = __webpack_require__(271);
+
+	var data = [{ name: '1', uv: 4000, pv: 2400, amt: 2400 }, { name: '2', uv: 3000, pv: 1398, amt: 2210 }, { name: '3', uv: 2000, pv: 9800, amt: 2290 }, { name: '4', uv: 2780, pv: 3908, amt: 2000 }, { name: '5', uv: 1890, pv: 4800, amt: 2181 }, { name: '6', uv: 2390, pv: 3800, amt: 2500 }, { name: '7', uv: 3490, pv: 4300, amt: 2100 }];
+
+	var LineGraph = (function (_React$Component) {
+	  _inherits(LineGraph, _React$Component);
+
+	  function LineGraph() {
+	    _classCallCheck(this, LineGraph);
+
+	    _get(Object.getPrototypeOf(LineGraph.prototype), 'constructor', this).apply(this, arguments);
+	  }
+
+	  _createClass(LineGraph, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2['default'].createElement(
+	        'div',
+	        { className: 'col-sm-6' },
+	        _react2['default'].createElement(
+	          'h3',
+	          null,
+	          'Donation Views'
+	        ),
+	        _react2['default'].createElement(
+	          _recharts.AreaChart,
+	          { width: 400, height: 250, data: data },
+	          _react2['default'].createElement(_recharts.Area, { type: 'monotone', dataKey: 'uv', stroke: '#9ae2e8', fill: '#9ae2e8' }),
+	          _react2['default'].createElement(_recharts.CartesianGrid, { stroke: '#ccc' }),
+	          _react2['default'].createElement(_recharts.XAxis, { dataKey: 'name' }),
+	          _react2['default'].createElement(_recharts.YAxis, null),
+	          _react2['default'].createElement(_recharts.Tooltip, null)
+	        )
+	      );
+	    }
+	  }]);
+
+	  return LineGraph;
+	})(_react2['default'].Component);
+
+	exports['default'] = LineGraph;
+	module.exports = exports['default'];
+
+/***/ },
+/* 715 */
+/***/ function(module, exports, __webpack_require__) {
+
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
@@ -68597,7 +68543,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 715 */
+/* 716 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68651,7 +68597,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 716 */
+/* 717 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68705,7 +68651,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 717 */
+/* 718 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -68759,7 +68705,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 718 */
+/* 719 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -68788,11 +68734,11 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _partialsDonation_cardJs = __webpack_require__(719);
+	var _partialsDonation_cardJs = __webpack_require__(720);
 
 	var _partialsDonation_cardJs2 = _interopRequireDefault(_partialsDonation_cardJs);
 
-	var _partialsDonation_mapJs = __webpack_require__(720);
+	var _partialsDonation_mapJs = __webpack_require__(721);
 
 	var _partialsDonation_mapJs2 = _interopRequireDefault(_partialsDonation_mapJs);
 
@@ -69005,7 +68951,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 719 */
+/* 720 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69114,7 +69060,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 720 */
+/* 721 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69177,7 +69123,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 721 */
+/* 722 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69339,7 +69285,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 722 */
+/* 723 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -69400,7 +69346,7 @@
 	module.exports = exports["default"];
 
 /***/ },
-/* 723 */
+/* 724 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69441,7 +69387,7 @@
 
 	exports.useBasename = _useBasename3['default'];
 
-	var _useBeforeUnload2 = __webpack_require__(724);
+	var _useBeforeUnload2 = __webpack_require__(725);
 
 	var _useBeforeUnload3 = _interopRequireDefault(_useBeforeUnload2);
 
@@ -69461,13 +69407,13 @@
 
 	// deprecated
 
-	var _enableBeforeUnload2 = __webpack_require__(725);
+	var _enableBeforeUnload2 = __webpack_require__(726);
 
 	var _enableBeforeUnload3 = _interopRequireDefault(_enableBeforeUnload2);
 
 	exports.enableBeforeUnload = _enableBeforeUnload3['default'];
 
-	var _enableQueries2 = __webpack_require__(726);
+	var _enableQueries2 = __webpack_require__(727);
 
 	var _enableQueries3 = _interopRequireDefault(_enableQueries2);
 
@@ -69476,7 +69422,7 @@
 	exports.createLocation = createLocation;
 
 /***/ },
-/* 724 */
+/* 725 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -69593,7 +69539,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 725 */
+/* 726 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69606,7 +69552,7 @@
 
 	var _deprecate2 = _interopRequireDefault(_deprecate);
 
-	var _useBeforeUnload = __webpack_require__(724);
+	var _useBeforeUnload = __webpack_require__(725);
 
 	var _useBeforeUnload2 = _interopRequireDefault(_useBeforeUnload);
 
@@ -69614,7 +69560,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 726 */
+/* 727 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -69632,6 +69578,305 @@
 	var _useQueries2 = _interopRequireDefault(_useQueries);
 
 	exports['default'] = _deprecate2['default'](_useQueries2['default'], 'enableQueries is deprecated, use useQueries instead');
+	module.exports = exports['default'];
+
+/***/ },
+/* 728 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _axios = __webpack_require__(243);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _recharts = __webpack_require__(271);
+
+	var data = [{ name: '1', uv: 4000, pv: 2400, amt: 2400 }, { name: '2', uv: 3000, pv: 1398, amt: 2210 }, { name: '3', uv: 2000, pv: 9800, amt: 2290 }, { name: '4', uv: 2780, pv: 3908, amt: 2000 }, { name: '5', uv: 1890, pv: 4800, amt: 2181 }, { name: '6', uv: 2390, pv: 3800, amt: 2500 }, { name: '7', uv: 3490, pv: 4300, amt: 2100 }];
+
+	var BarGraph = (function (_React$Component) {
+	  _inherits(BarGraph, _React$Component);
+
+	  function BarGraph() {
+	    _classCallCheck(this, BarGraph);
+
+	    _get(Object.getPrototypeOf(BarGraph.prototype), 'constructor', this).apply(this, arguments);
+	  }
+
+	  _createClass(BarGraph, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2['default'].createElement(
+	        'div',
+	        { className: 'col-sm-6' },
+	        _react2['default'].createElement(
+	          'h3',
+	          null,
+	          'Amount of waste donated'
+	        ),
+	        _react2['default'].createElement(
+	          _recharts.BarChart,
+	          { width: 500, height: 250, data: data },
+	          _react2['default'].createElement(_recharts.XAxis, { dataKey: 'name' }),
+	          _react2['default'].createElement(_recharts.YAxis, null),
+	          _react2['default'].createElement(_recharts.CartesianGrid, { strokeDasharray: '3 3' }),
+	          _react2['default'].createElement(_recharts.Tooltip, null),
+	          _react2['default'].createElement(_recharts.Legend, null),
+	          _react2['default'].createElement(_recharts.Bar, { dataKey: 'pv', fill: '#9ae2e8' }),
+	          _react2['default'].createElement(_recharts.Bar, { dataKey: 'uv', fill: '#82ca9d' })
+	        )
+	      );
+	    }
+	  }]);
+
+	  return BarGraph;
+	})(_react2['default'].Component);
+
+	exports['default'] = BarGraph;
+	module.exports = exports['default'];
+
+/***/ },
+/* 729 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _axios = __webpack_require__(243);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var DashboardCard = (function (_React$Component) {
+	  _inherits(DashboardCard, _React$Component);
+
+	  function DashboardCard() {
+	    _classCallCheck(this, DashboardCard);
+
+	    _get(Object.getPrototypeOf(DashboardCard.prototype), 'constructor', this).apply(this, arguments);
+	  }
+
+	  _createClass(DashboardCard, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2['default'].createElement(
+	        'div',
+	        { className: 'col-sm-3' },
+	        _react2['default'].createElement(
+	          'div',
+	          { className: 'bg-primary card-description' },
+	          _react2['default'].createElement(
+	            'h1',
+	            null,
+	            this.props.header
+	          ),
+	          _react2['default'].createElement(
+	            'p',
+	            null,
+	            this.props.description
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return DashboardCard;
+	})(_react2['default'].Component);
+
+	exports['default'] = DashboardCard;
+	module.exports = exports['default'];
+
+/***/ },
+/* 730 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _axios = __webpack_require__(243);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var DashboardFeed = (function (_React$Component) {
+	  _inherits(DashboardFeed, _React$Component);
+
+	  function DashboardFeed() {
+	    _classCallCheck(this, DashboardFeed);
+
+	    _get(Object.getPrototypeOf(DashboardFeed.prototype), 'constructor', this).apply(this, arguments);
+	  }
+
+	  _createClass(DashboardFeed, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2['default'].createElement(
+	        'div',
+	        { className: 'col-sm-8' },
+	        _react2['default'].createElement(
+	          'h3',
+	          null,
+	          'Feeds'
+	        ),
+	        _react2['default'].createElement(
+	          'ul',
+	          null,
+	          _react2['default'].createElement(
+	            'li',
+	            null,
+	            'Post 1'
+	          ),
+	          _react2['default'].createElement(
+	            'li',
+	            null,
+	            'Post 2'
+	          )
+	        )
+	      );
+	    }
+	  }]);
+
+	  return DashboardFeed;
+	})(_react2['default'].Component);
+
+	exports['default'] = DashboardFeed;
+	module.exports = exports['default'];
+
+/***/ },
+/* 731 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, '__esModule', {
+	  value: true
+	});
+
+	var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ('value' in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+	var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ('value' in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var _axios = __webpack_require__(243);
+
+	var _axios2 = _interopRequireDefault(_axios);
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _dashboard_line_graphJs = __webpack_require__(714);
+
+	var _dashboard_line_graphJs2 = _interopRequireDefault(_dashboard_line_graphJs);
+
+	var _dashboard_bar_graphJs = __webpack_require__(728);
+
+	var _dashboard_bar_graphJs2 = _interopRequireDefault(_dashboard_bar_graphJs);
+
+	var _dashboard_cardJs = __webpack_require__(729);
+
+	var _dashboard_cardJs2 = _interopRequireDefault(_dashboard_cardJs);
+
+	var _dashboard_feedJs = __webpack_require__(730);
+
+	var _dashboard_feedJs2 = _interopRequireDefault(_dashboard_feedJs);
+
+	var DashboardView = (function (_React$Component) {
+	  _inherits(DashboardView, _React$Component);
+
+	  function DashboardView() {
+	    _classCallCheck(this, DashboardView);
+
+	    _get(Object.getPrototypeOf(DashboardView.prototype), 'constructor', this).apply(this, arguments);
+	  }
+
+	  _createClass(DashboardView, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2['default'].createElement(
+	        'div',
+	        null,
+	        _react2['default'].createElement(
+	          'div',
+	          { className: 'row' },
+	          _react2['default'].createElement(_dashboard_line_graphJs2['default'], null),
+	          _react2['default'].createElement(_dashboard_bar_graphJs2['default'], null)
+	        ),
+	        _react2['default'].createElement(
+	          'div',
+	          { className: 'row cards' },
+	          _react2['default'].createElement(_dashboard_cardJs2['default'], { header: 'Card 1', description: 'Card 1 description' }),
+	          _react2['default'].createElement(_dashboard_cardJs2['default'], { header: 'Card 2', description: 'Card 2 description' }),
+	          _react2['default'].createElement(_dashboard_cardJs2['default'], { header: 'Card 3', description: 'Card 3 description' })
+	        ),
+	        _react2['default'].createElement(
+	          'div',
+	          { className: 'row' },
+	          _react2['default'].createElement(_dashboard_feedJs2['default'], null)
+	        )
+	      );
+	    }
+	  }]);
+
+	  return DashboardView;
+	})(_react2['default'].Component);
+
+	exports['default'] = DashboardView;
 	module.exports = exports['default'];
 
 /***/ }

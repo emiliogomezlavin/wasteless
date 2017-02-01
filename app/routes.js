@@ -8,6 +8,7 @@ import axios from 'axios'
 import Main from './components/main.js'
 import Whoops404 from './components/404.js'
 import Dashboard from './components/dashboard.js'
+import DashboardView from './components/partials/dashboard_view.js'
 import PastDonations from './components/past_donations.js'
 import Pickups from './components/pickups.js'
 import LeaderBoard  from './components/leader_board.js'
@@ -33,6 +34,7 @@ const routes = (
   <Router history={appHistory}>
     <Route component={Main} >
       <Route path='/' component={Dashboard} >
+        <Route path='dashboard' component={DashboardView} />
         <Route path='past_donations' component={PastDonations} />
         <Route path='upcoming_pickups' component={Pickups} />
         <Route path='leaderboard' component={LeaderBoard} />
