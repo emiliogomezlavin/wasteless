@@ -5,7 +5,7 @@
 	<!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-		<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Petit+Formal+Script|Poiret+One|Quicksand" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Fredericka+the+Great|Petit+Formal+Script|Poiret+One|Quicksand|Barrio" rel="stylesheet">
 
 		<link rel="stylesheet" href="/css/main.css" media="screen" title="no title">
 
@@ -13,76 +13,83 @@
 </head>
 <body>
 
+<video autoplay loop muted poster="images/sun-nasa.jpg" id="fullscreen">
+	
+	<source src="../images/wasteless-home-video.mp4" type="video/mp4">
+
+</video>
+
 <div class="intro">
-  <div class="overlay">
+	  <div class="overlay">
 
 		<div class="container intro-title">
-      <h1>Welcome the WasteLess</h1>
-    </div>
+	      <h1>Waste<span style="color: #a3d8d6">Less<span></h1>
+	    </div>
 
-		<!-- Sign in and Sign up form -->
-		<div class="sign-in-form">
-			<div class="row">
-				<h3>Sign In</h3>
-				<hr>
-				<form class="form-inline" role="form" method="POST" action="/sign_in">
-					<div class="form-group">
-						<label class="sr-only" for="username"></label> Username
-						<input type="text" name="username" id="username" placeholder="Enter your username..." class="form-control" required>
-					</div>
-					<div class="form-group">
-						<label class="sr-only" for="password"></label> Password
-						<input type="password" name="password" id="password" placeholder="Enter your password..." class="form-control" required>
-					</div>
-					<button type="submit" class="btn" id="login">Login</button>
+			<!-- Sign in and Sign up form -->
+			<div class="sign-in-form">
+				<div class="row">
+					<h3>Sign In</h3>
+					<hr>
+					<form class="form-inline" role="form" method="POST" action="/sign_in">
+						<div class="form-group">
+							<label class="sr-only" for="username"></label> Username
+							<input type="text" name="username" id="username" placeholder="Enter your username..." class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="password"></label> Password
+							<input type="password" name="password" id="password" placeholder="Enter your password..." class="form-control" required>
+						</div>
+						<button type="submit" class="btn" id="login">Login</button>
+					</form>
+				</div>
+				<div class="row">
+					<h3>Or Sign Up</h3>
+					<hr>
+					<form class="form-inline" role="form" method="POST" action="/sign_up">
+						<div class="form-group">
+							<label class="sr-only" for="first_name"></label> Name
+							<input type="text" name="first_name" id="first_name" placeholder="Enter your first name..." class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="last_name"></label> Last Name
+							<input type="text" name="last_name" id="last_name" placeholder="Enter your last name..." class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="email"></label> Email
+							<input type="text" name="email" id="email" placeholder="Enter your email..." class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="username"></label> Username
+							<input type="text" name="username" id="username" placeholder="Choose your username..." class="form-control" required>
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="password"></label> Password
+							<input type="password" name="password" id="password" placeholder="Password" class="form-control" required>
+						</div>
+						<button type="submit" class="btn" id="login">Sign Up</button>
+					</form>
+				</div>
+			</div>
+
+			<!-- Content -->
+			<div class="subscribe">
+				<h3>Subscribe to our newsletter</h3>
+				<form class="form-inline" role="form" action="https://docs.google.com/forms/d/e/1FAIpQLSc6l_0OE-1NQMenajNBnmhpQeDQFP6ZDACEiWQON2pufOm68w/formResponse" method="post">
+					<label class="sr-only" for="subscribe-email">Email address</label>
+						<input type="text" name="email" placeholder="Enter your email..." class="subscribe-email form-control" id="subscribe-email">
+					<button type="submit" class="btn" id="subscribe">Subscribe</button>
 				</form>
+				<div class="col-sm-12 social">
+						<a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><img src="landing-page-assets/img/facebook.png" alt="Facebook" /></a>
+						<a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><img src="landing-page-assets/img/twitter.png" alt="Twitter" /></a>
+						<a href="#" data-toggle="tooltip" data-placement="top" title="LinkedIn"><img src="landing-page-assets/img/linkedin.png" alt="LinkedIn" /></i></a>
+				</div>
 			</div>
-			<div class="row">
-				<h3>Or Sign Up</h3>
-				<hr>
-				<form class="form-inline" role="form" method="POST" action="/sign_up">
-					<div class="form-group">
-						<label class="sr-only" for="first_name"></label> Name
-						<input type="text" name="first_name" id="first_name" placeholder="Enter your first name..." class="form-control" required>
-					</div>
-					<div class="form-group">
-						<label class="sr-only" for="last_name"></label> Last Name
-						<input type="text" name="last_name" id="last_name" placeholder="Enter your last name..." class="form-control" required>
-					</div>
-					<div class="form-group">
-						<label class="sr-only" for="email"></label> Email
-						<input type="text" name="email" id="email" placeholder="Enter your email..." class="form-control" required>
-					</div>
-					<div class="form-group">
-						<label class="sr-only" for="username"></label> Username
-						<input type="text" name="username" id="username" placeholder="Choose your username..." class="form-control" required>
-					</div>
-					<div class="form-group">
-						<label class="sr-only" for="password"></label> Password
-						<input type="password" name="password" id="password" placeholder="Password" class="form-control" required>
-					</div>
-					<button type="submit" class="btn" id="login">Sign Up</button>
-				</form>
-			</div>
-		</div>
 
-		<!-- Content -->
-		<div class="subscribe">
-			<h3>Subscribe to our newsletter</h3>
-			<form class="form-inline" role="form" action="https://docs.google.com/forms/d/e/1FAIpQLSc6l_0OE-1NQMenajNBnmhpQeDQFP6ZDACEiWQON2pufOm68w/formResponse" method="post">
-				<label class="sr-only" for="subscribe-email">Email address</label>
-					<input type="text" name="email" placeholder="Enter your email..." class="subscribe-email form-control" id="subscribe-email">
-				<button type="submit" class="btn" id="subscribe">Subscribe</button>
-			</form>
-			<div class="col-sm-12 social">
-					<a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><img src="landing-page-assets/img/facebook.png" alt="Facebook" /></a>
-					<a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><img src="landing-page-assets/img/twitter.png" alt="Twitter" /></a>
-					<a href="#" data-toggle="tooltip" data-placement="top" title="LinkedIn"><img src="landing-page-assets/img/linkedin.png" alt="LinkedIn" /></i></a>
-			</div>
-		</div>
-
-  </div>
-</div>
+	  </div>
+	</div> 
+ 
 
 
 

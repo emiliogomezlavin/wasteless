@@ -1,3 +1,4 @@
+
 /*
 NOTE: These are our Fonts and Colors
 font-family: 'Fredericka the Great', cursive;
@@ -11,7 +12,7 @@ html{
   font:14px;
   font-family: 'Quicksand', Arial, sans-serif;
   color:#626771;
-  background-color:#fff;
+  /*background-color:#fff;*/
 }
 
 /* Sign in and Landing page styles */
@@ -23,12 +24,35 @@ html{
 .subscribe button{
   background-color: #a3d8d6;
 }
+
+@media(min-width: 200px) and (max-width: 900px){
+  .intro h1 {
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 36px;
+  }
+}
+
 .intro-title {
   text-align: center;
-  font-family: 'Fredericka the Great', cursive;
+  font-family: 'Barrio', cursive;
 }
 .social {
   margin-top: 5px;
+}
+
+video#fullscreen{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-image: url('../images/blue-berries.jpeg') no-repeat;
+  background-size: cover;
 }
 
 /* Header Section */
@@ -37,8 +61,8 @@ html{
 	width: 100%;
 	height: 100vh;
 	padding: 0;
-	background: url("/images/blue-berries.jpeg") no-repeat center center;
-	background-color: #e5e5e5;
+	/*background: url("/images/blue-berries.jpeg") no-repeat center center;*/
+/*	background-color: #e5e5e5;*/
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	background-size: cover;
@@ -56,21 +80,14 @@ html{
 	color: #fff;
 	margin-top: 0;
 	margin-bottom: 10px;
-  font-size: 60px;
+  font-size: 100px;
 }
 
 header .intro-text {
 	padding-top: 250px;
 	text-align: center;
 }
-@media(min-width: 200px) and (max-width: 900px){
-  .intro h1 {
-  	color: #fff;
-  	margin-top: 0;
-  	margin-bottom: 10px;
-    font-size: 36px;
-  }
-}
+
 
 .sign-in-form {
   font-family: 'Quicksand' !important;
