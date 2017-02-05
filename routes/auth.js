@@ -12,9 +12,11 @@ router.post('/sign_up', function(req, res, next){
       passport.authenticate('local', function(err, user, info){
         req.session.username = user.username;
         req.session.save();
-        // res.redirect('/home');
+        if(err){ console.log(err) }
+
+        res.redirect('/home');
       })(req, res, next);
-      res.redirect('/home')
+      // res.redirect('/home')
     })
   });
 
