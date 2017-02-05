@@ -41,7 +41,7 @@ $( document ).ready(function(){
   //   searchBox.addListener('places_changed', function() {
   //     var places = searchBox.getPlaces();
   //     fillForm(places);
-      
+
   //     if (places.length == 0) {
   //       return;
   //     }
@@ -82,4 +82,8 @@ $( document ).ready(function(){
   //   });
   // }
 
+  $("#subscribe").click(function(e){
+    console.log(e)
+    // e.preventDefault()
+  })
 });

@@ -73,17 +73,13 @@
 				</div>
 			</div>
 
-			<!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc6l_0OE-1NQMenajNBnmhpQeDQFP6ZDACEiWQON2pufOm68w/viewform?embedded=true" width="760" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe> -->
-
-			<!-- <input type="email" class="quantumWizTextinputPaperinputInput exportInput subscribe-email form-control" jsname="YPqjbf" autocomplete="email" tabindex="0" aria-label="Your email" name="emailAddress" value="" required="" dir="auto" data-initial-dir="auto" data-initial-value="" id="subscribe-email> -->
-
 			<!-- Content -->
 			<div class="subscribe">
 				<h3>Subscribe to our newsletter</h3>
-				<form class="form-inline" role="form" action="https://docs.google.com/forms/d/e/1FAIpQLSc6l_0OE-1NQMenajNBnmhpQeDQFP6ZDACEiWQON2pufOm68w/formResponse?embedded=true" method="post">
+				<form class="form-inline" role="form" action="https://docs.google.com/forms/d/e/1FAIpQLSc6l_0OE-1NQMenajNBnmhpQeDQFP6ZDACEiWQON2pufOm68w/formResponse" method="post" target="_blank">
 					<label class="sr-only" for="subscribe-email">Email address</label>
-						<input type="text" class="quantumWizTextinputPaperinputInput exportInput subscribe-email form-control" jsname="YPqjbf" autocomplete="off" tabindex="0" aria-label="Email" aria-describedby="i.desc.2013722341 i.err.2013722341" name="entry.2077103770" value="" dir="auto" data-initial-dir="auto" data-initial-value="" id="subscribe-email">
-					<button type="submit" class="btn" id="subscribe">Subscribe</button>
+						<input type="text" class="subscribe-email form-control" autocomplete="off" aria-label="Email" name="entry.2077103770" value="" id="subscribe-email">
+					<button type="submit" class="btn" id="subscribe" data-toggle="modal" data-target="#myModal">Subscribe</button>
 				</form>
 				<div class="col-sm-12 social">
 						<a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><img src="landing-page-assets/img/facebook.png" alt="Facebook" /></a>
@@ -91,11 +87,6 @@
 						<a href="#" data-toggle="tooltip" data-placement="top" title="LinkedIn"><img src="landing-page-assets/img/linkedin.png" alt="LinkedIn" /></i></a>
 				</div>
 			</div>
-
-			<!-- Button trigger modal -->
-			<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-			  Launch demo modal
-			</button>
 
 			<!-- Modal -->
 			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -106,7 +97,7 @@
 			        <h4 class="modal-title" id="myModalLabel">Join Our Mailing List!</h4>
 			      </div>
 			      <div class="modal-body">
-							<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSc6l_0OE-1NQMenajNBnmhpQeDQFP6ZDACEiWQON2pufOm68w/viewform?embedded=true#start=embed" width="100%" height="100%" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+							Thanks for subscribing!
 			      </div>
 			      <div class="modal-footer">
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -122,6 +113,6 @@
 
 
 
-
+	<script src="./scripts/main.js" charset="utf-8"></script>
 </body>
 </html>
