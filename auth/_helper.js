@@ -18,7 +18,6 @@ function createUser (req){
       last_name: req.body.last_name,
       donator: false
     })
-    .returning('*');
 }
 
 
