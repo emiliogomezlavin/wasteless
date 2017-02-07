@@ -5,7 +5,13 @@ class PastDonations extends React.Component {
   constructor(props) {
     super(props);
     this.state = { searchString: "" }
+    // this.handleChange = this.handleChange.bind(this);
   }
+  // handleChange() {
+  //   this.props.onUserInput(
+  //     this.searchString
+  //   );
+  // }
   render() {
 
 
@@ -35,7 +41,7 @@ class PastDonations extends React.Component {
         <input type='text' value={this.state.searchString} onChange={this.handleChange} placeholder='Search'/>
         <ul>
           { data.map( function(d){
-            return <li key={d.id}>{d.name} <a target='_blank' href={d.url}>{d.url}</a></li>
+            return <li key={d.value}>{d.name} <a target='_blank' href={d.url}>{d.url}</a></li>
           })}
         </ul>
       </div>
